@@ -1,8 +1,9 @@
 /**
+ * Provides all classes for the controller component.
  * 
- * Provide all classes for Element Package
+ * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
  * 
- * @author pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
+ * @version 1.0
  *
  */
 package Element;
