@@ -1,6 +1,6 @@
 /**
  * 
- * Provide all classes for Element Packagef
+ * Provide all classes for Element Package
  * 
  * @author pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
  *
