@@ -1,5 +1,8 @@
 package Element;
 
 public enum Permeability {
-BLOCKING, PENETRABLE;
+	/** The blocking. */
+	BLOCKING,
+	/** The penetrable. */
+	PENETRABLE;
 }
