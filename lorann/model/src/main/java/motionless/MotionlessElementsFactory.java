@@ -7,7 +7,9 @@ public abstract class MotionlessElementsFactory {
 	private Wall WALL = new Wall();
 	private Floor FLOOR = new Floor();
 	private Gate GATE = new Gate();
-	private MotionlessElement[] motionlessElements = {WALL_VERTICAL, WALL_HORIZONTAL, WALL, FLOOR, GATE};
+	private Purse PURSE = new Purse();
+	private Key KEY = new Key();
+	private MotionlessElement[] motionlessElements = {WALL_VERTICAL, WALL_HORIZONTAL, WALL, FLOOR, GATE, PURSE, KEY};
 	
 	public MotionlessElement creatWall_Vertical() {
 		return WALL_VERTICAL;	

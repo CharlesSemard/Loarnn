@@ -9,7 +9,6 @@ public class Sprite {
 	private boolean imageLoaded;
 	
 	public Sprite(char character, String imageName) {
-		// TODO Auto-generated constructor stub
 		this.setConsoleImage(character);
 		this.setImageName(imageName);
 	}
