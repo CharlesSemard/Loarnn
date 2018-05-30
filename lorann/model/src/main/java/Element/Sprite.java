@@ -1,4 +1,4 @@
-package element;
+package Element;
 import java.awt.Image;
 
 public class Sprite {

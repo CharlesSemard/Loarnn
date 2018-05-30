@@ -1,8 +1,8 @@
 package motionless;
 
-import element.Element;
-import element.Permeability;
-import element.Sprite;
+import Element.Element;
+import Element.Permeability;
+import Element.Sprite;
 
 abstract class MotionlessElement extends Element{
 	MotionlessElement (Sprite sprite, Permeability permeability) {

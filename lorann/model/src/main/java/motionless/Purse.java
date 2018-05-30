@@ -1,7 +1,7 @@
 package motionless;
 
-import element.Permeability;
-import element.Sprite;
+import Element.Permeability;
+import Element.Sprite;
 
 public class Purse extends MotionlessElement {
 	private static final Sprite SPRITE = new Sprite('i',"purse.png");
