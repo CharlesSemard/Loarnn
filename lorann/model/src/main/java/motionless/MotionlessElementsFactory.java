@@ -66,12 +66,11 @@ public abstract class MotionlessElementsFactory {
 		return FLOOR;	
 	}
 	
-    /**
+	 /**
      * Creates a new MotionlessElements object.
      *
      * @return the motionless element
      */
-	
 	public MotionlessElement creatGate() {
 		return GATE;	
 	}
