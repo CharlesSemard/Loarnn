@@ -1,4 +1,4 @@
-package element;
+package Element;
 
 public enum Permeability {
 BLOCKING, PENETRABLE;

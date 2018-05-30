@@ -1,4 +1,4 @@
-package element;
+package Element;
 import java.awt.Image;
 
 public class Sprite {
@@ -13,7 +13,7 @@ public class Sprite {
 		this.setImageName(imageName);
 	}
 
-	private void setImageName(String imageName2) {
+	private void setImageName(String imageName) {
 		// TODO Auto-generated method stub
 		
 	}
