@@ -49,10 +49,10 @@ public class ControllerFacade implements IController {
 
         final List<Example> examples = this.getModel().ShowAllLevels();
         final StringBuilder message = new StringBuilder();
-        for (final Example example : examples) {
+       /* for (final Example example : examples) {
             message.append(example);
             message.append('\n');
-        }
+        }*/
         this.getView().displayMessage(message.toString());
     }
     

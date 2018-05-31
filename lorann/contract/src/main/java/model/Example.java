@@ -64,4 +64,12 @@ public class Example {
     public String toString() {
         return this.getName();
     }
+    
+    public String toString1() {
+        return "Do you want to play ?\n            Yes           No";
+    }
+    
+    public String toString2() {
+        return "--- Select your level : ---\n Level 1 : * \n Level 2 : ** \n Level 3 : ** \n Level 4 : ****";
+    }
 }
