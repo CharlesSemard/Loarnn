@@ -12,4 +12,9 @@ public abstract class Mobile {
 	private int speed;
 	
 	private Boolean alive = true;
+	
+	protected void die() {
+		this.alive = false;
+		// faire une fonction pour reset la map
+	}
 }
