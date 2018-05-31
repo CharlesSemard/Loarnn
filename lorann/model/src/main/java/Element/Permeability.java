@@ -4,5 +4,7 @@ public enum Permeability {
 	/** The blocking. */
 	BLOCKING,
 	/** The penetrable. */
-	PENETRABLE;
+	PENETRABLE,
+	/** The entity */
+	ENTITY;
 }
