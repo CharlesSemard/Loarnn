@@ -1,2 +1,14 @@
 
 \.project
+
+lorann/view/\.classpath
+
+lorann/showboard/\.classpath
+
+lorann/contract/\.classpath
+
+lorann/controller/\.classpath
+
+lorann/main/\.classpath
+
+lorann/model/\.classpath

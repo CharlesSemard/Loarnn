@@ -36,8 +36,6 @@ public abstract class Main {
             System.out.print(mapLevel);
         } catch (final SQLException exception) {
             exception.printStackTrace();
-        }*/
-        
-
-          }  
+        	}
+        }  
 }
