@@ -7,6 +7,6 @@ public class Hero{
 	}
 	
 	public int moveRight() {
-		
+		return 0;
 	}
 }

@@ -4,9 +4,14 @@ package main;
 
 import java.awt.Color;
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.swing.JPanel;
 
+import controller.ControllerFacade;
+import model.ModelFacade;
 import view.Fenetre;
+import view.ViewFacade;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,15 +35,15 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws IOException {
     	//new Fenetre();
-    	model.Map.fillOnTheMap();
+    	//model.Map.fillOnTheMap();
     	
-      /*  final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+      final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
         try {
             controller.startLevel5();
         } catch (final SQLException exception) {
             exception.printStackTrace();
-        }*/
+        }
         
 
           }  
