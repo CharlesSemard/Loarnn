@@ -1,5 +1,7 @@
 package motionless;
 
+import java.awt.Image;
+
 import Element.Permeability;
 import Element.Sprite;
 
@@ -10,5 +12,11 @@ public class Purse extends MotionlessElement {
 	/** Instantiates a new Purse. */
 	Purse(){
 		super(SPRITE, Permeability.PENETRABLE);
+	}
+
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

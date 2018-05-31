@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Image;
+import java.awt.Point;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -48,5 +50,29 @@ public final class ModelFacade implements IModel {
     public List<Example> ShowAllLevels() throws SQLException {
         return ExampleDAO.ShowAllLevels();
     }
+
+	@Override
+	public int getX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getY() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Point getPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

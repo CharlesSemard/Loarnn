@@ -1,5 +1,7 @@
 package motionless;
 
+import java.awt.Image;
+
 import Element.Permeability;
 import Element.Sprite;
 
@@ -11,5 +13,11 @@ class Wall_Vertical extends MotionlessElement {
 	/** Instantiates a new Wall_Vertical. */
 	Wall_Vertical(){
 		super(SPRITE, Permeability.BLOCKING);
+	}
+
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

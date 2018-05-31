@@ -1,6 +1,6 @@
 package Element;
 
-public abstract class Element {
+public abstract class Element implements IElement {
 	
 	/** The sprite. */
 	private Sprite sprite;

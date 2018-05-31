@@ -1,7 +1,10 @@
 package model;
 
+
 import java.sql.SQLException;
 import java.util.List;
+
+import showboard.IPawn;
 
 /**
  * <h1>The Interface IModel.</h1>
@@ -9,7 +12,7 @@ import java.util.List;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public interface IModel {
+public interface IModel extends IPawn{
 
     /**
      * Gets the example by id.
@@ -41,4 +44,7 @@ public interface IModel {
      *             the SQL exception
      */
     List<Example> ShowAllLevels() throws SQLException;
+    
+    
+    
 }
