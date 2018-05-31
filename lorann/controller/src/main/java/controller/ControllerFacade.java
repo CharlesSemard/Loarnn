@@ -63,8 +63,8 @@ public class ControllerFacade implements IController {
      *             the SQL exception
      * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
      */
-    public void startLevel1() throws SQLException {
-        this.getView().displayMessage(this.getModel().ShowLevelByID(1).toString());
+    public String getLevel1() throws SQLException {
+    	return this.getModel().ShowLevelByID(1).toString();
     }
     
     /**
@@ -75,8 +75,8 @@ public class ControllerFacade implements IController {
      *             
      * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
      */
-    public void startLevel2() throws SQLException {
-        this.getView().displayMessage(this.getModel().ShowLevelByID(2).toString());
+    public String getLevel2() throws SQLException {
+    	return this.getModel().ShowLevelByID(2).toString();
     }
     
     /**
@@ -87,8 +87,8 @@ public class ControllerFacade implements IController {
      *             
      * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
      */
-    public void startLevel3() throws SQLException {
-        this.getView().displayMessage(this.getModel().ShowLevelByID(3).toString());
+    public String getLevel3() throws SQLException {
+    	return this.getModel().ShowLevelByID(3).toString();
     }
     
     /**
@@ -99,8 +99,8 @@ public class ControllerFacade implements IController {
      *             
      * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
      */
-    public void startLevel4() throws SQLException {
-        this.getView().displayMessage(this.getModel().ShowLevelByID(4).toString());
+    public String getLevel4() throws SQLException {
+    	return this.getModel().ShowLevelByID(4).toString();
     }
     
     /**
@@ -111,8 +111,8 @@ public class ControllerFacade implements IController {
      *             
      * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
      */
-    public void startLevel5() throws SQLException {
-        this.getView().displayMessage(this.getModel().ShowLevelByID(5).toString());
+    public String getLevel5() throws SQLException {
+    	return this.getModel().ShowLevelByID(5).toString();
     }
     
     /**

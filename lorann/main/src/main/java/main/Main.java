@@ -25,7 +25,10 @@ import javax.swing.JLabel;
  * @version 1.0
  */
 public abstract class Main {
-
+	
+	/**The map of the level (text version) */
+	public static String mapLevel;
+	
     /**
      * The main method.
      *
@@ -37,10 +40,11 @@ public abstract class Main {
     	//new Fenetre();
     	//model.Map.fillOnTheMap();
     	
-      final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+    final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
         try {
-            controller.startLevel5();
+        	mapLevel = controller.getLevel2();
+            System.out.print(mapLevel);
         } catch (final SQLException exception) {
             exception.printStackTrace();
         }
