@@ -1,0 +1,19 @@
+package mobile;
+
+import java.awt.Point;
+
+import showboard.IPawn;
+
+public interface IMobile extends IPawn {
+
+	int getX(); 
+	
+	int getY();
+	
+	int getSpeed();
+	
+	boolean getAlive();
+	
+	Point getPosition();
+	 
+}

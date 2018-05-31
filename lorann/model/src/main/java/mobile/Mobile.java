@@ -1,6 +1,6 @@
 package mobile;
 
-public abstract class Mobile {
+public abstract class Mobile implements IMobile {
 
 	/** The X */
 	private int x;
@@ -31,7 +31,7 @@ public abstract class Mobile {
 		return speed;
 	}
 
-	public Boolean getAlive() {
+	public boolean getAlive() {
 		return alive;
 	}
 

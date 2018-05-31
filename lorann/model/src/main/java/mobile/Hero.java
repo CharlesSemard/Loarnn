@@ -1,5 +1,8 @@
 package mobile;
 
+import java.awt.Image;
+import java.awt.Point;
+
 public class Hero extends Mobile{
 	
 	/** The Hero X position */
@@ -14,5 +17,23 @@ public class Hero extends Mobile{
 	Boolean hasSpell = true;
 	/** Is the gate open ? */
 	Boolean hasKey = false;
+	@Override
+	public Point getPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public int getX() {
+		return this.getPosition().x;
+	}
+	
+	public int getY() {
+	return this.getPosition().y;
+	}
 	
 }

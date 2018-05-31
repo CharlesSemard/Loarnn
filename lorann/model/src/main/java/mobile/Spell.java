@@ -1,5 +1,8 @@
 package mobile;
 
+import java.awt.Image;
+import java.awt.Point;
+
 //import Element.Sprite;
 
 public class Spell extends Mobile{
@@ -13,4 +16,23 @@ public class Spell extends Mobile{
 	private Boolean alive = false;
 	/** The Speed */
 	private int speed = 1;
+	
+	@Override
+	public Point getPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public Image getImage() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public int getX() {
+		return this.getPosition().x;
+	}
+	
+	public int getY() {
+	return this.getPosition().y;
+	}
 }
