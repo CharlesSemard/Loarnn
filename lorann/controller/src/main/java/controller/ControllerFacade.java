@@ -37,16 +37,17 @@ public class ControllerFacade implements IController {
 
     /**
      * Start.
+     * Function that allows to test the BDD connection
      *
      * @throws SQLException
      *             the SQL exception
      */
     public void start() throws SQLException {
-        this.getView().displayMessage(this.getModel().getExampleById(1).toString());
+        this.getView().displayMessage(this.getModel().ShowLevelByID(2).toString());
 
-        this.getView().displayMessage(this.getModel().getExampleByName("Niveau 2").toString());
+        //this.getView().displayMessage(this.getModel().getExampleByName("Niveau 2").toString());
 
-        final List<Example> examples = this.getModel().getAllExamples();
+        final List<Example> examples = this.getModel().ShowAllLevels();
         final StringBuilder message = new StringBuilder();
         for (final Example example : examples) {
             message.append(example);
@@ -54,7 +55,66 @@ public class ControllerFacade implements IController {
         }
         this.getView().displayMessage(message.toString());
     }
-
+    
+    /**
+     * Function that send the map for the first level in text format from the BDD
+     *
+     * @throws SQLException
+     *             the SQL exception
+     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
+     */
+    public void startLevel1() throws SQLException {
+        this.getView().displayMessage(this.getModel().ShowLevelByID(1).toString());
+    }
+    
+    /**
+     * Function that send the map for the Second level in text format from the BDD
+     *
+     * @throws SQLException
+     *             the SQL exception
+     *             
+     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
+     */
+    public void startLevel2() throws SQLException {
+        this.getView().displayMessage(this.getModel().ShowLevelByID(2).toString());
+    }
+    
+    /**
+     * Function that send the map for the Third level in text format from the BDD
+     *
+     * @throws SQLException
+     *             the SQL exception
+     *             
+     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
+     */
+    public void startLevel3() throws SQLException {
+        this.getView().displayMessage(this.getModel().ShowLevelByID(3).toString());
+    }
+    
+    /**
+     * Function that send the map for the Fourth level in text format from the BDD
+     *
+     * @throws SQLException
+     *             the SQL exception
+     *             
+     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
+     */
+    public void startLevel4() throws SQLException {
+        this.getView().displayMessage(this.getModel().ShowLevelByID(4).toString());
+    }
+    
+    /**
+     * Function that send the map for the Fifth level in text format from the BDD
+     *
+     * @throws SQLException
+     *             the SQL exception
+     *             
+     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
+     */
+    public void startLevel5() throws SQLException {
+        this.getView().displayMessage(this.getModel().ShowLevelByID(5).toString());
+    }
+    
     /**
      * Gets the view.
      *
