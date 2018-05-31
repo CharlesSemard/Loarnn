@@ -16,6 +16,11 @@ public class Fenetre2 extends JFrame {
 	int largeurFen = 800;
 	JPanel pan = new JPanel();
 	JButton boutonExit = new JButton("Exit");
+	JButton boutonLevel1 = new JButton("Level 1");
+	JButton boutonLevel2 = new JButton("Level 2");
+	JButton boutonLevel3 = new JButton("Level 3");
+	JButton boutonLevel4 = new JButton("Level 4");
+	JButton boutonLevel5 = new JButton("Level 5");
 	JLabel texte = new JLabel("--- Select your level : ---");
 	
 	String url = "LorannLogo.jpg";
@@ -31,8 +36,13 @@ public class Fenetre2 extends JFrame {
     Fenetre2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     pan.add(texte);
+    pan.add(boutonLevel1);
+    pan.add(boutonLevel2);
+    pan.add(boutonLevel3);
+    pan.add(boutonLevel4);
+    pan.add(boutonLevel5);
     pan.add(boutonExit);
-
+    
     pan.add(logo);
     Fenetre2.validate();
     Fenetre2.setVisible(true);

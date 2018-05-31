@@ -44,7 +44,7 @@ public class BoardFrame extends JFrame implements IBoard {
      * @param decorated
      *            the decorated
      */
-    public BoardFrame(final String title, final Boolean decorated) extends JFrame {
+    /*public BoardFrame(final String title, final Boolean decorated) extends JFrame {
         super();
         this.setTitle(Title);
         this.setSize(defaultFrameSize, defaultFrameSize);
@@ -57,7 +57,7 @@ public class BoardFrame extends JFrame implements IBoard {
         this.setVisible(true); 
         
         
-    }
+    }*/
 
     /**
      * Instantiates a new board frame.

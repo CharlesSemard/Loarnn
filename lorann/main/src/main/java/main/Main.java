@@ -29,7 +29,8 @@ public abstract class Main {
      * @throws IOException 
      */
     public static void main(final String[] args) throws IOException {
-    	new Fenetre();
+    	//new Fenetre();
+    	model.Map.fillOnTheMap();
     	
       /*  final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
@@ -40,38 +41,6 @@ public abstract class Main {
             exception.printStackTrace();
         }*/
         
-    	/*JFrame Fenetre = new JFrame();
-
-    	JPanel pan = new JPanel();
-    	JButton bouton = new JButton("Play");
-    	JButton bouton2 = new JButton("Exit");
-    	JLabel texte = new JLabel("Welcome to Lorann !\n\n What do you want to do ?\n\n");
-    	
-    	String url = "LorannLogo.jpg";
-    	ImageIcon icone = new ImageIcon(url);
-    	
-    	JLabel logo = new JLabel (icone, JLabel.CENTER);
-    	
-    	
-    	
-        Fenetre.setTitle("Lorann");
-        Fenetre.setSize(1000, 800);
-        Fenetre.setLocationRelativeTo(null);
-        Fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        pan.add(texte);
-        pan.add(bouton);
-        pan.add(bouton2);
-        pan.add(logo);
-        Fenetre.validate();
-        Fenetre.setVisible(true);
-        Fenetre.setContentPane(pan);
-        Fenetre.setVisible(true);
-        
-        bouton2.addActionListener(e -> System.exit(0));*/
-
-
-                        
 
           }  
 }
