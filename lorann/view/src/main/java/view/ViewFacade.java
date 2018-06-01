@@ -23,7 +23,7 @@ public class ViewFacade implements IView {
     	BFA.setDimension(Dim);
         for (int PosY = 0; PosY < 12; PosY++) {
         	for (int PosX = 0; PosX < 20; PosX++) {
-            	BFA.addSquare(Element, PosX, PosY);
+            	/*BFA.addSquare(Element, PosX, PosY);*/
             }
         }
         BFA.setVisible(true);

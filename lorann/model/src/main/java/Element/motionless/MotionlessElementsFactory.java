@@ -23,8 +23,11 @@ public abstract class MotionlessElementsFactory {
 	/** The Constant Key. */
 	private Key KEY = new Key();
 	
+	/** The Gate Open. */
+	private GateOpen GATEOPEN = new GateOpen();
+	
 	/** The motionless elements is an array of all possible MotionlessElement. . */
-	private MotionlessElement[] motionlessElements = {WALL_VERTICAL, WALL_HORIZONTAL, WALL, FLOOR, GATE, PURSE, KEY};
+	private MotionlessElement[] motionlessElements = {WALL_VERTICAL, WALL_HORIZONTAL, WALL, FLOOR, GATE, GATEOPEN, PURSE, KEY};
 	
     /**
      * Creates a new MotionlessElements object.
