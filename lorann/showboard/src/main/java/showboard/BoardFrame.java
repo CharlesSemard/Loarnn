@@ -1,4 +1,4 @@
-/*package showboard;
+package showboard;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
@@ -24,17 +24,17 @@ import javax.swing.JFrame;
  * @see IBoard
  * @see ISquare
  * @see IPawn
- *
+ */
 public class BoardFrame extends JFrame implements IBoard {
 
-    /** The Constant serialVersionUID. *
+    /** The Constant serialVersionUID. */
     private static final long serialVersionUID = -6563585351564617603L;
 
-    /** The initial frame size. *
+    /** The initial frame size. */
     private static final int  defaultFrameSize = 700;
 
-    /** The board panel. *
-    //private final BoardPanel  boardPanel;
+    /** The board panel. */
+    private final BoardPanel  boardPanel;
 
     /**
      * Instantiates a new board frame.
@@ -43,10 +43,10 @@ public class BoardFrame extends JFrame implements IBoard {
      *            the title of the frame
      * @param decorated
      *            the decorated
-     *
-    /*public BoardFrame(final String title, final Boolean decorated) extends JFrame {
+     */
+    public BoardFrame(final String title, final Boolean decorated) {
         super();
-        this.setTitle(Title);
+        this.setTitle(title);
         this.setSize(defaultFrameSize, defaultFrameSize);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,42 +54,40 @@ public class BoardFrame extends JFrame implements IBoard {
         this.boardPanel = new BoardPanel();
         this.setContentPane(this.boardPanel);
         this.setResizable(false);
-        this.setVisible(true); 
-        
-        
-    }*
+        this.setVisible(true);
+    }
 
     /**
      * Instantiates a new board frame.
      *
      * @param title
      *            the title
-     *
-    /*public BoardFrame(final String title) {
+     */
+    public BoardFrame(final String title) {
         this(title, false);
-    }*/
+    }
 
     /**
      * Instantiates a new board frame.
-     *
-    /*public BoardFrame() {
+     */
+    public BoardFrame() {
         this("", false);
-    }*
+    }
 
     /**
      * Instantiates a new board frame.
      *
      * @param decorated
      *            the decorated
-     *
-    /*public BoardFrame(final Boolean decorated) {
+     */
+    public BoardFrame(final Boolean decorated) {
         this("", decorated);
-    }*/
+    }
 
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#addSquare(fr.exia.showboard.ISquare, int, int)
-     *
+     */
     @Override
     public final void addSquare(final ISquare square, final int x, final int y) {
         this.getBoardPanel().addSquare(square, x, y);
@@ -98,7 +96,7 @@ public class BoardFrame extends JFrame implements IBoard {
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#addPawn(fr.exia.showboard.IPawn)
-     *
+     */
     @Override
     public final void addPawn(final IPawn pawn) {
         this.getBoardPanel().addPawn(pawn);
@@ -107,7 +105,7 @@ public class BoardFrame extends JFrame implements IBoard {
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#getObserver()
-     *
+     */
     @Override
     public final Observer getObserver() {
         return this.getBoardPanel();
@@ -116,7 +114,7 @@ public class BoardFrame extends JFrame implements IBoard {
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#setDimension(java.awt.Dimension)
-     *
+     */
     @Override
     public final void setDimension(final Dimension dimension) {
         this.getBoardPanel().setDimension(dimension);
@@ -125,7 +123,7 @@ public class BoardFrame extends JFrame implements IBoard {
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#getDimension()
-     *
+     */
     @Override
     public final Dimension getDimension() {
         return this.getBoardPanel().getDimension();
@@ -135,7 +133,7 @@ public class BoardFrame extends JFrame implements IBoard {
      * Gets the display frame.
      *
      * @return the display frame
-     *
+     */
     public final Rectangle getDisplayFrame() {
         return this.getBoardPanel().getDisplayFrame();
     }
@@ -143,7 +141,7 @@ public class BoardFrame extends JFrame implements IBoard {
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IBoard#setDisplayFrame(java.awt.Rectangle)
-     *
+     */
     @Override
     public final void setDisplayFrame(final Rectangle displayFrame) {
         this.getBoardPanel().setDisplayFrame(displayFrame);
@@ -153,16 +151,16 @@ public class BoardFrame extends JFrame implements IBoard {
      * Gets the board panel.
      *
      * @return the board panel
-     *
-    /*private BoardPanel getBoardPanel() {
+     */
+    private BoardPanel getBoardPanel() {
         return this.boardPanel;
-    }*/
+    }
 
     /**
      * Checks if is width looped.
      *
      * @return the boolean
-     *
+     */
     public final Boolean isWidthLooped() {
         return this.getBoardPanel().isWidthLooped();
     }
@@ -172,7 +170,7 @@ public class BoardFrame extends JFrame implements IBoard {
      *
      * @param widthLooped
      *            the new width looped
-     *
+     */
     public final void setWidthLooped(final Boolean widthLooped) {
         this.getBoardPanel().setWidthLooped(widthLooped);
     }
@@ -181,7 +179,7 @@ public class BoardFrame extends JFrame implements IBoard {
      * Checks if is height looped.
      *
      * @return the boolean
-     *
+     */
     public final Boolean isHeightLooped() {
         return this.getBoardPanel().isHeightLooped();
     }
@@ -191,8 +189,8 @@ public class BoardFrame extends JFrame implements IBoard {
      *
      * @param heightLooped
      *            the new height looped
-     *
+     */
     public final void setHeightLooped(final Boolean heightLooped) {
         this.getBoardPanel().setHeightLooped(heightLooped);
     }
-}*/
+}
