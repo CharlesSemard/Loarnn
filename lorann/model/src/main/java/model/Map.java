@@ -11,6 +11,10 @@ public class Map extends Observable implements IMap {
 	
 	int Y = 0;
 	
+	private int width;
+	
+	private int height;
+	
 	public void fillOnTheMap() throws FileNotFoundException {
 	
 		try {
@@ -31,14 +35,20 @@ public class Map extends Observable implements IMap {
 
 	@Override
 	public int getWidth() {
-		// TODO Auto-generated method stub
-		return 12;
+		return this.width;
+	}
+	
+	private void setWidth(final int width) {
+		this.width = width;
 	}
 
 	@Override
 	public int getHeight() {
-		// TODO Auto-generated method stub
-		return 20;
+		return this.height;
+	}
+	
+	private void setHeight(final int height) {
+		this.height = height;
 	}
 
 	@Override

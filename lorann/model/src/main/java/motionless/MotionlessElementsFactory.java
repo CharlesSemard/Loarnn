@@ -74,4 +74,5 @@ public abstract class MotionlessElementsFactory {
 	public MotionlessElement creatGate() {
 		return GATE;	
 	}
+	
 }
