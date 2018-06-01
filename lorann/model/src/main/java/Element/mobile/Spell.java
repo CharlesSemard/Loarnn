@@ -1,4 +1,4 @@
-package mobile;
+package Element.mobile;
 
 import java.awt.Image;
 import java.awt.Point;
@@ -7,22 +7,25 @@ import model.IMap;
 import model.Permeability;
 import model.Sprite;
 
-public class Hero extends Mobile{
+//import Element.Sprite;
+
+public class Spell extends Mobile{
 	
-	Hero(Sprite sprite, IMap map, Permeability permeability) {
+	Spell(Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, map, permeability);
 		// TODO Auto-generated constructor stub
 	}
-	/** The Hero X position */
-	int /**/ position_Y;
-	/** The Hero Y position */
-	int position_X;
-	/** The Hero Moving Speed */
-	int speed = 1;
-	/** Is the Hero allowed to launch a spell ? */
-	Boolean hasSpell = true;
-	/** Is the gate open ? */
-	Boolean hasKey = false;
+	/** The Constant SPRITE. */
+	//private static final Sprite SPRITE = new Sprite(, "fireball_1.png"); 
+	/** The X */
+	//private int position_Y = this.getY();  //TODO finir cette merde ptn, bisous PL
+	/** The Y */
+	private int position_X;
+	/** The alive */
+	private Boolean alive = false;
+	/** The Speed */
+	private int speed = 1;
+	
 	@Override
 	public Point getPosition() {
 		// TODO Auto-generated method stub
@@ -41,6 +44,7 @@ public class Hero extends Mobile{
 	public int getY() {
 	return this.getPosition().y;
 	}
+	
 	@Override
 	public boolean getAlive() {
 		// TODO Auto-generated method stub
@@ -71,5 +75,4 @@ public class Hero extends Mobile{
 		// TODO Auto-generated method stub
 		
 	}
-	
 }

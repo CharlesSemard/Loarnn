@@ -1,18 +1,16 @@
-package motionless;
+package Element.motionless;
 
-import java.awt.*;
+import java.awt.Image;
 
 import model.Permeability;
 import model.Sprite;
 
-class Gate extends MotionlessElement {
-	
+class Wall extends MotionlessElement {
 	/** The Constant SPRITE. */
-	private static final Sprite SPRITE = new Sprite('H',"gate_closed.png");
+	private static final Sprite SPRITE = new Sprite('o',"bone.png");
 	
-
-	/** Instantiates a new Gate. */
-	Gate(){
+	/** Instantiates a new Wall. */
+	Wall(){
 		super(SPRITE, Permeability.BLOCKING);
 	}
 
@@ -21,6 +19,4 @@ class Gate extends MotionlessElement {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 }

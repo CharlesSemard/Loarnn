@@ -1,4 +1,4 @@
-package mobile;
+package Element.mobile;
 
 import java.awt.Image;
 import java.awt.Point;
@@ -7,22 +7,19 @@ import model.IMap;
 import model.Permeability;
 import model.Sprite;
 
-//import Element.Sprite;
+public class Monster extends Mobile{
 
-public class Spell extends Mobile{
-	
-	Spell(Sprite sprite, IMap map, Permeability permeability) {
+
+	Monster(Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, map, permeability);
 		// TODO Auto-generated constructor stub
 	}
-	/** The Constant SPRITE. */
-	//private static final Sprite SPRITE = new Sprite(, "fireball_1.png"); 
 	/** The X */
-	//private int position_Y = this.getY();  //TODO finir cette merde ptn, bisous PL
+	private int position_Y;
 	/** The Y */
 	private int position_X;
 	/** The alive */
-	private Boolean alive = false;
+	private Boolean alive = true;
 	/** The Speed */
 	private int speed = 1;
 	
@@ -44,7 +41,6 @@ public class Spell extends Mobile{
 	public int getY() {
 	return this.getPosition().y;
 	}
-	
 	@Override
 	public boolean getAlive() {
 		// TODO Auto-generated method stub

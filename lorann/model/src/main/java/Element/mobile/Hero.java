@@ -1,4 +1,4 @@
-package mobile;
+package Element.mobile;
 
 import java.awt.Image;
 import java.awt.Point;
@@ -7,22 +7,22 @@ import model.IMap;
 import model.Permeability;
 import model.Sprite;
 
-public class Monster extends Mobile{
-
-
-	Monster(Sprite sprite, IMap map, Permeability permeability) {
+public class Hero extends Mobile{
+	
+	Hero(Sprite sprite, IMap map, Permeability permeability) {
 		super(sprite, map, permeability);
 		// TODO Auto-generated constructor stub
 	}
-	/** The X */
-	private int position_Y;
-	/** The Y */
-	private int position_X;
-	/** The alive */
-	private Boolean alive = true;
-	/** The Speed */
-	private int speed = 1;
-	
+	/** The Hero X position */
+	int /**/ position_Y;
+	/** The Hero Y position */
+	int position_X;
+	/** The Hero Moving Speed */
+	int speed = 1;
+	/** Is the Hero allowed to launch a spell ? */
+	Boolean hasSpell = true;
+	/** Is the gate open ? */
+	Boolean hasKey = false;
 	@Override
 	public Point getPosition() {
 		// TODO Auto-generated method stub
@@ -71,4 +71,5 @@ public class Monster extends Mobile{
 		// TODO Auto-generated method stub
 		
 	}
+	
 }

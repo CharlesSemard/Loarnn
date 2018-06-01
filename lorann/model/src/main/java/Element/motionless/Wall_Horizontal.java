@@ -1,4 +1,4 @@
-package motionless;
+package Element.motionless;
 
 import java.awt.Image;
 

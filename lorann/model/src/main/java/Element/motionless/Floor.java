@@ -1,19 +1,17 @@
-package motionless;
+package Element.motionless;
 
 import java.awt.Image;
 
 import model.Permeability;
 import model.Sprite;
 
-class Wall extends MotionlessElement {
+class Floor extends MotionlessElement {
 	/** The Constant SPRITE. */
-	private static final Sprite SPRITE = new Sprite('o',"bone.png");
-	
-	/** Instantiates a new Wall. */
-	Wall(){
+	private static final Sprite SPRITE = new Sprite('.',"floor.png"); 
+	/** Instantiates a new Floor. */
+	Floor(){
 		super(SPRITE, Permeability.BLOCKING);
 	}
-
 	@Override
 	public Image getImage() {
 		// TODO Auto-generated method stub
