@@ -3,13 +3,18 @@ package mobile;
 import java.awt.Image;
 import java.awt.Point;
 
-import Element.Permeability;
-import Element.Sprite;
+import model.IMap;
+import model.Permeability;
+import model.Sprite;
 
 //import Element.Sprite;
 
 public class Spell extends Mobile{
 	
+	Spell(Sprite sprite, IMap map, Permeability permeability) {
+		super(sprite, map, permeability);
+		// TODO Auto-generated constructor stub
+	}
 	/** The Constant SPRITE. */
 	//private static final Sprite SPRITE = new Sprite(, "fireball_1.png"); 
 	/** The X */

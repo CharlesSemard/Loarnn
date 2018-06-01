@@ -2,8 +2,8 @@ package motionless;
 
 import java.awt.*;
 
-import Element.Permeability;
-import Element.Sprite;
+import model.Permeability;
+import model.Sprite;
 
 class Gate extends MotionlessElement {
 	
@@ -21,4 +21,6 @@ class Gate extends MotionlessElement {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 }

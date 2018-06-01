@@ -1,4 +1,4 @@
-package Element;
+package model;
 import java.awt.Image;
 
 public class Sprite {

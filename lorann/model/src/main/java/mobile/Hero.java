@@ -3,11 +3,16 @@ package mobile;
 import java.awt.Image;
 import java.awt.Point;
 
-import Element.Permeability;
-import Element.Sprite;
+import model.IMap;
+import model.Permeability;
+import model.Sprite;
 
 public class Hero extends Mobile{
 	
+	Hero(Sprite sprite, IMap map, Permeability permeability) {
+		super(sprite, map, permeability);
+		// TODO Auto-generated constructor stub
+	}
 	/** The Hero X position */
 	int /**/ position_Y;
 	/** The Hero Y position */

@@ -2,8 +2,8 @@ package motionless;
 
 import java.awt.Image;
 
-import Element.Permeability;
-import Element.Sprite;
+import model.Permeability;
+import model.Sprite;
 
 class Wall_Vertical extends MotionlessElement {
 	

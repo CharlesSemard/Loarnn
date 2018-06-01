@@ -2,8 +2,6 @@ package model;
 
 import java.util.Observable;
 
-import Element.IElement;
-
 public interface IMap {
 	
     /**

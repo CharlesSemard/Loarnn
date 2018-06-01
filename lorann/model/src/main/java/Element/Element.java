@@ -1,5 +1,9 @@
 package Element;
 
+import model.IElement;
+import model.Permeability;
+import model.Sprite;
+
 public abstract class Element implements IElement {
 	
 	/** The sprite. */

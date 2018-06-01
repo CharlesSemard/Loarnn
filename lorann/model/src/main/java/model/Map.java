@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.Observable;
 import java.util.Scanner;
 
-import Element.IElement;
-
 public class Map extends Observable implements IMap {
 	
 	int Y = 0;
