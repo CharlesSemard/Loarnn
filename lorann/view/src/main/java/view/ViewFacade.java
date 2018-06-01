@@ -4,7 +4,6 @@ import showboard.BoardFrame;
 import java.awt.Dimension;
 
 import javax.swing.JOptionPane;
-import showboard.BoardFrame;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
