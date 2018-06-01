@@ -61,5 +61,10 @@ public class Hero extends Mobile{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void doNothing() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

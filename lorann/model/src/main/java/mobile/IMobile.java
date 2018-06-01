@@ -23,5 +23,7 @@ public interface IMobile extends IPawn {
 	void moveRight();
 	
 	void moveDown();
+	
+	void doNothing();
 	 
 }

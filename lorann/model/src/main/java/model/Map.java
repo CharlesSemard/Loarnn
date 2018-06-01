@@ -15,6 +15,8 @@ public class Map extends Observable implements IMap {
 	
 	private int height;
 	
+	private IElement[][] onTheMap;
+	
 	public void fillOnTheMap() throws FileNotFoundException {
 	
 		try {

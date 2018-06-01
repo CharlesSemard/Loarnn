@@ -61,4 +61,9 @@ public class Monster extends Mobile{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	public void doNothing() {
+		// TODO Auto-generated method stub
+		
+	}
 }
