@@ -1,9 +1,9 @@
 package view;
+import showboard.BoardFrame;
 
 import java.awt.Dimension;
 
 import javax.swing.JOptionPane;
-import showboard.BoardFrame;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -15,7 +15,14 @@ public class ViewFacade implements IView {
 
     /**
      * Instantiates a new view facade.
+     * @return 
+     * @return 
      */
+	
+	
+
+	
+	
     public ViewFacade() {
     	super();
     	final BoardFrame BFA = new BoardFrame("Title");
