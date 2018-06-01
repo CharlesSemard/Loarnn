@@ -13,13 +13,24 @@ public class Sprite {
 		this.setImageName(imageName);
 	}
 
+	/**
+     * Sets the image name.
+     *
+     * @param imageName
+     *            the imageName to set
+     */
 	private void setImageName(String imageName) {
-		// TODO Auto-generated method stub
-		
-	}
+		this.imageName = imageName;
+    }
 
-	private void setConsoleImage(char character) {
-		// TODO Auto-generated method stub
+	/**
+     * Sets the console image.
+     *
+     * @param consoleImage
+     *            the consoleImage to set
+     */
+	private void setConsoleImage(final char consoleImage) {
+		this.consoleImage = consoleImage;
 		
 	}
 }

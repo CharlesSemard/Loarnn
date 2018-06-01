@@ -1,11 +1,9 @@
 package view;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.awt.Dimension;
+
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import showboard.BoardFrame;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -19,7 +17,16 @@ public class ViewFacade implements IView {
      * Instantiates a new view facade.
      */
     public ViewFacade() {
-        super();
+    	super();
+    	final BoardFrame BFA = new BoardFrame("Title");
+    	Dimension Dim = new Dimension(20,12);
+    	BFA.setDimension(Dim);
+        for (int PosY = 0; PosY < 12; PosY++) {
+        	for (int PosX = 0; PosX < 20; PosX++) {
+            	BFA.addSquare(Element, PosX, PosY);
+            }
+        }
+        BFA.setVisible(true);
     }
 
     /*
