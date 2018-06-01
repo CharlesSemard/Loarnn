@@ -15,5 +15,13 @@ public interface IMobile extends IPawn {
 	boolean getAlive();
 	
 	Point getPosition();
+	
+	void moveUp();
+	
+	void moveLeft();
+	
+	void moveRight();
+	
+	void moveDown();
 	 
 }

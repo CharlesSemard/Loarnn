@@ -1,6 +1,14 @@
 package mobile;
 
-public abstract class Mobile implements IMobile {
+import java.awt.Point;
+
+import Element.Element;
+import Element.Permeability;
+import Element.Sprite;
+
+public abstract class Mobile extends Element implements IMobile {
+
+
 
 	/** The X */
 	private int x;
@@ -10,6 +18,16 @@ public abstract class Mobile implements IMobile {
 	
 	/** The Speed */
 	private int speed;
+	/** Mobile alive */
+	private Boolean alive = true;
+	
+	private Point position;
+	
+	Mobile(final Sprite sprite, final IMap map, final Permeability permeability){
+		super(sprite, permeability);
+		// implémenter un setMap 
+		this.position = new Point();
+	}
 	
 	public int getX() {
 		return x;
@@ -31,18 +49,13 @@ public abstract class Mobile implements IMobile {
 		return speed;
 	}
 
-	public boolean getAlive() {
-		return alive;
+	public Boolean isAlive() {
+		return this.alive;
 	}
-
-	public void setAlive(Boolean alive) {
-		this.alive = alive;
-	}
-
-	private Boolean alive = true;
 	
 	protected void die() {
 		this.alive = false;
 		// faire une fonction pour reset la map
 	}
+	
 }

@@ -2,9 +2,12 @@ package model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Observable;
 import java.util.Scanner;
 
-public class Map {
+import Element.IElement;
+
+public class Map extends Observable implements IMap {
 	
 	int Y = 0;
 	
@@ -25,12 +28,28 @@ public class Map {
 			e.getMessage().toString();
 		}
 	}	
-	
-	private int getHeight() { //longueur
+
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 12;
+	}
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
 		return 20;
 	}
 
-	private int getWidth() { //largeur
-		return 12;
+	@Override
+	public IElement getOnTheMapXY(int x, int y) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Observable getObservable() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
