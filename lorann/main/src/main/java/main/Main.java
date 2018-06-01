@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import controller.ControllerFacade;
 import model.ModelFacade;
+import showboard.BoardFrame;
 import view.Fenetre;
 import view.ViewFacade;
 
@@ -26,8 +27,8 @@ public abstract class Main {
      * @throws IOException 
      */
     public static void main(final String[] args) throws IOException {
-    	new Fenetre();
-    	//model.Map.fillOnTheMap();
+    	
+    	BoardFrame.Fenetre();
     	
     final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 

@@ -1,4 +1,5 @@
 package view;
+import showboard.BoardFrame;
 
 import java.awt.Dimension;
 
@@ -15,7 +16,14 @@ public class ViewFacade implements IView {
 
     /**
      * Instantiates a new view facade.
+     * @return 
+     * @return 
      */
+	
+	
+
+	
+	
     public ViewFacade() {
     	super();
     	final BoardFrame BFA = new BoardFrame("Title");
