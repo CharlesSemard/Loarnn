@@ -1,10 +1,16 @@
 package model;
 
 public enum Permeability {
-	/** The blocking. */
+	/** For the Walls (basic, vertical and horizontal) */
 	BLOCKING,
-	/** The penetrable. */
+	/** For the Floor */
 	PENETRABLE,
-	/** The entity */
-	ENTITY;
+	/** For the Purse and the key */
+	COLLECTIBLE,
+	/** For the Door */
+	DOOR, 
+	/** For the spell */
+	SPELL, 
+	/** For the monsters */
+	MONSTER;
 }

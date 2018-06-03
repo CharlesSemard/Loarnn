@@ -2,22 +2,23 @@ package main;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
 import controller.ControllerFacade;
+import model.IModel;
 import model.ModelFacade;
 import showboard.BoardFrame;
-import view.Fenetre;
 import view.ViewFacade;
 
 /**
  * <h1>The Class Main.</h1>
  *
  * @author Gwendal Lupart gwendal.lupart@viacesi.fr
- * @version 1.0
+ * @version 2.0
  */
 public abstract class Main {
 	
 	/**The map of the level (text version) */
-	public static String mapLevel;
+	//public static String mapLevel;
 	
     /**
      * The main method.
@@ -25,18 +26,26 @@ public abstract class Main {
      * @param args
      *            the arguments
      * @throws IOException 
+     * @throws SQLException 
+     * @throws InterruptedException 
      */
-    public static void main(final String[] args) throws IOException {
-    	
+    public static void main(final String[] args) throws IOException, SQLException, InterruptedException {
+    	//Vraie fonction à garder dans le main
     	BoardFrame.Fenetre();
     	
-    final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-
-        try {
-        	mapLevel = controller.getLevel2();
-            System.out.print(mapLevel);
-        } catch (final SQLException exception) {
-            exception.printStackTrace();
-        	}
-        }    
+    	
+    	
+    	//Bloc de Fonctions de test du jeu à placer dans les boutons des fenêtres...
+    	
+    	final IModel model = new ModelFacade(2);
+    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getMyCharacter(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor());
+        final ControllerFacade controller = new ControllerFacade(view, model);
+        
+        view.setOrderPerformer(controller.getOrderPerformer());
+        controller.start();
+        
+        //Fin du Bloc de Fonctions de Test
+        
+        
+    }   
 }

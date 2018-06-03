@@ -1,9 +1,9 @@
 package controller;
 
+import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
-import model.Example;
 import model.IModel;
 import view.IView;
 
@@ -13,13 +13,18 @@ import view.IView;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ControllerFacade implements IController {
+public class ControllerFacade implements IController, IOrderPerformer {
 
     /** The view. */
     private final IView  view;
 
     /** The model. */
     private final IModel model;
+    /** The order. */
+    private KeyEvent stackOrder;
+    
+    /** The speed of refresh. */
+    private static int speed = 100;
 
     /**
      * Instantiates a new controller facade.
@@ -37,84 +42,48 @@ public class ControllerFacade implements IController {
 
     /**
      * Start.
-     * Function that allows to test the BDD connection
      *
      * @throws SQLException
      *             the SQL exception
+     * @throws InterruptedException 
      */
-    public void start() throws SQLException {
-        this.getView().displayMessage(this.getModel().ShowLevelByID(2).toString());
+    public void start() throws SQLException, InterruptedException, IOException {
+        while(this.getModel().getMyCharacter().isAlive()) {
+        	Thread.sleep(speed);
+        	if(this.getStackOrder() != null) {
+        		switch(this.getStackOrder().getKeyCode()) {
+        		case KeyEvent.VK_RIGHT:
+        			this.getModel().getMyCharacter().moveRight();
+        			break;
+        		case KeyEvent.VK_LEFT:
+        			this.getModel().getMyCharacter().moveLeft();
+        			break;
+        		case KeyEvent.VK_UP:
+        			this.getModel().getMyCharacter().moveUp();
+        			break;
+        		case KeyEvent.VK_DOWN:
+        			this.getModel().getMyCharacter().moveDown();
+        			break;
+        		case KeyEvent.VK_SPACE:
+        			this.getModel().getMyCharacter().shoot();
+        			break;
+        		default:
+        			this.getModel().getMyCharacter().doNothing();
+        			break;
+        		}
+        		this.stackOrder = null;
+        	}
+        	else {
+        		this.getModel().getMyCharacter().doNothing();
+        	}
+        	
+        }
+        if(this.getModel().hasCharacterWon())
+        	this.getView().displayMessage("You escaped !");
+        else
+        	this.getView().displayMessage("You're dead..");
+    }
 
-        //this.getView().displayMessage(this.getModel().getExampleByName("Niveau 2").toString());
-
-        final List<Example> examples = this.getModel().ShowAllLevels();
-        final StringBuilder message = new StringBuilder();
-       /* for (final Example example : examples) {
-            message.append(example);
-            message.append('\n');
-        }*/
-        this.getView().displayMessage(message.toString());
-    }
-    
-    /**
-     * Function that send the map for the first level in text format from the BDD
-     *
-     * @throws SQLException
-     *             the SQL exception
-     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
-     */
-    public String getLevel1() throws SQLException {
-    	return this.getModel().ShowLevelByID(1).toString();
-    }
-    
-    /**
-     * Function that send the map for the Second level in text format from the BDD
-     *
-     * @throws SQLException
-     *             the SQL exception
-     *             
-     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
-     */
-    public String getLevel2() throws SQLException {
-    	return this.getModel().ShowLevelByID(2).toString();
-    }
-    
-    /**
-     * Function that send the map for the Third level in text format from the BDD
-     *
-     * @throws SQLException
-     *             the SQL exception
-     *             
-     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
-     */
-    public String getLevel3() throws SQLException {
-    	return this.getModel().ShowLevelByID(3).toString();
-    }
-    
-    /**
-     * Function that send the map for the Fourth level in text format from the BDD
-     *
-     * @throws SQLException
-     *             the SQL exception
-     *             
-     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
-     */
-    public String getLevel4() throws SQLException {
-    	return this.getModel().ShowLevelByID(4).toString();
-    }
-    
-    /**
-     * Function that send the map for the Fifth level in text format from the BDD
-     *
-     * @throws SQLException
-     *             the SQL exception
-     *             
-     * @author Pierre-Loup MARTIGNE pierreloup.martigne@viacesi.fr
-     */
-    public String getLevel5() throws SQLException {
-    	return this.getModel().ShowLevelByID(5).toString();
-    }
-    
     /**
      * Gets the view.
      *
@@ -132,4 +101,40 @@ public class ControllerFacade implements IController {
     public IModel getModel() {
         return this.model;
     }
+    
+    /**
+     * Stock the order.
+     *
+     * @return the model
+     */
+    public void performOrder(KeyEvent userOrder) {
+    	this.setStackOrder(userOrder);
+    }
+
+    /**
+     * Gets the order.
+     *
+     * @return the model
+     */
+	public KeyEvent getStackOrder() {
+		return stackOrder;
+	}
+
+	/**
+     * Set the order.
+     *
+     * @return the model
+     */
+	public void setStackOrder(KeyEvent stackOrder) {
+		this.stackOrder = stackOrder;
+	}
+	
+	/**
+     * Gets the Order performer.
+     *
+     * @return the model
+     */
+	public IOrderPerformer getOrderPerformer() {
+		return this;
+	}
 }

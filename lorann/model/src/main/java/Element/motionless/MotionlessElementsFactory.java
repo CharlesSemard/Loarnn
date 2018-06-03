@@ -3,28 +3,22 @@ package Element.motionless;
 public abstract class MotionlessElementsFactory {
 	
 	/** The Constant Wall_Vertical. */
-	private Wall_Vertical WALL_VERTICAL = new Wall_Vertical();
+	private static Wall_Vertical WALL_VERTICAL = new Wall_Vertical();
 	
 	/** The Constant Wall_Horizontal. */
-	private Wall_Horizontal WALL_HORIZONTAL = new Wall_Horizontal();
+	private static Wall_Horizontal WALL_HORIZONTAL = new Wall_Horizontal();
 	
 	/** The Constant Wall. */
-	private Wall WALL = new Wall();
+	private static Wall WALL = new Wall();
 	
 	/** The Constant Floor. */
-	private Floor FLOOR = new Floor();
+	private static Floor FLOOR = new Floor();
 	
 	/** The Constant Gate. */
-	private Gate GATE = new Gate();
-	
-	/** The Constant Purse. */
-	private Purse PURSE = new Purse();
-	
-	/** The Constant Key. */
-	private Key KEY = new Key();
+	private static Gate GATE = new Gate();
 	
 	/** The motionless elements is an array of all possible MotionlessElement. . */
-	private MotionlessElement[] motionlessElements = {WALL_VERTICAL, WALL_HORIZONTAL, WALL, FLOOR, GATE, PURSE, KEY};
+	private static MotionlessElement[] motionlessElements = {WALL_VERTICAL, WALL_HORIZONTAL, WALL, FLOOR, GATE};
 	
     /**
      * Creates a new MotionlessElements object.
@@ -32,7 +26,7 @@ public abstract class MotionlessElementsFactory {
      * @return the motionless element
      */
 	
-	public MotionlessElement creatWall_Vertical() {
+	public static MotionlessElement creatWall_Vertical() {
 		return WALL_VERTICAL;	
 	}
 	
@@ -42,7 +36,7 @@ public abstract class MotionlessElementsFactory {
      * @return the motionless element
      */
 	
-	public MotionlessElement creatWall_Horizontal() {
+	public static MotionlessElement creatWall_Horizontal() {
 		return WALL_HORIZONTAL;	
 	}
 	
@@ -52,7 +46,7 @@ public abstract class MotionlessElementsFactory {
      * @return the motionless element
      */
 	
-	public MotionlessElement creatWall() {
+	public static MotionlessElement creatWall() {
 		return WALL;	
 	}
 	
@@ -62,7 +56,7 @@ public abstract class MotionlessElementsFactory {
      * @return the motionless element
      */
 	
-	public MotionlessElement creatFloor() {
+	public static MotionlessElement creatFloor() {
 		return FLOOR;	
 	}
 	
@@ -71,8 +65,23 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-	public MotionlessElement creatGate() {
+	public static MotionlessElement creatGate() {
 		return GATE;	
 	}
 	
+	/**
+     * Gets the good MotionlessElement from the file.
+     *
+     * @param fileSymbol
+     *            the file symbol
+     * @return the from file
+     */
+    public static MotionlessElement getSymbol(final char fileSymbol) {
+        for (final MotionlessElement motionlessElement : motionlessElements) {
+            if (motionlessElement.getSprite().getConsoleImage() == fileSymbol) {
+                return motionlessElement;
+            }
+        }
+        return FLOOR;
+    }
 }

@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.Point;
 import java.util.Observable;
 
 public interface IMap {
@@ -32,6 +33,8 @@ public interface IMap {
 	
 	IElement getOnTheMapXY(int x, int y);
 	
+	void setOnTheMapXY(int x, int y, IElement element);
+	
     /**
      * Gets the observable.
      *
@@ -39,4 +42,16 @@ public interface IMap {
      */
 	
 	Observable getObservable();
+
+	Point getCharacterPosition();
+	
+	Point[] getPurses();
+	
+	Point[] getMonsters();
+	
+	Point getEnergyBall();
+	
+	Point getDoor();
+
+	boolean setSpellOnTheMapXY(int x, int y, IElement spell);
 }

@@ -1,22 +1,25 @@
 package view;
 
-import javax.swing.JPanel;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import showboard.BoardFrame;
+import javax.swing.JPanel;
 
 
 public class Fenetre2 extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5137575669936224083L;
 
 	public Fenetre2() {
 		
 	JFrame Fenetre2 = new JFrame();
     
-	int longueurFen = 1100;
-	int largeurFen = 800;
+	//int longueurFen = 1100;
+	//int largeurFen = 800;
 	
 	JPanel pan2 = new JPanel();
 	JPanel panLevel1 = new JPanel();

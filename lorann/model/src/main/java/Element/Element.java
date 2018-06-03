@@ -1,5 +1,6 @@
 package Element;
 
+import java.awt.Image;
 import model.IElement;
 import model.Permeability;
 import model.Sprite;
@@ -25,8 +26,14 @@ public abstract class Element implements IElement {
         this.setSprite(sprite);
         this.setPermeability(permeability);
 	}
+	
+	/**
+     * Gets the permeability.
+     *
+     * @return the permeability
+     */
 	public Permeability getPermeability() {
-		return permeability;
+		return this.permeability;
 	}
 	
     /**
@@ -39,8 +46,10 @@ public abstract class Element implements IElement {
 	public void setPermeability(Permeability permeability) {
 		this.permeability = permeability;
 	}
+	
+	@Override
 	public Sprite getSprite() {
-		return sprite;
+		return this.sprite;
 	}
 	
     /**
@@ -49,8 +58,12 @@ public abstract class Element implements IElement {
      * @param sprite
      *            the new sprite
      */
-	
 	public void setSprite(Sprite sprite) {
 		this.sprite = sprite;
+	}
+	
+	@Override
+	public Image getImage() {
+		return this.getSprite().getImage();
 	}
 }

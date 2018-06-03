@@ -278,6 +278,8 @@ public class BoardFrame extends JFrame implements IBoard {
         bouton.addActionListener(e -> Fenetre.setContentPane(pan2));
         
 
+        
+        
     	
 
     	
@@ -301,6 +303,7 @@ public class BoardFrame extends JFrame implements IBoard {
 
        
         boutonExit.addActionListener(e -> System.exit(0));
+        
         boutonLevel1.addActionListener(e -> pan2.setVisible(false));
         boutonLevel1.addActionListener(e -> panLevel1.setVisible(true));
         boutonLevel1.addActionListener(e -> Fenetre.setContentPane(panLevel1));

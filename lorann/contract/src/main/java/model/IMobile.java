@@ -12,8 +12,6 @@ public interface IMobile extends IPawn {
 	
 	int getSpeed();
 	
-	boolean getAlive();
-	
 	Point getPosition();
 	
 	void moveUp();
@@ -25,5 +23,13 @@ public interface IMobile extends IPawn {
 	void moveDown();
 	
 	void doNothing();
+
+	boolean isAlive();
+
+	boolean isHit(int newX, int newY);
+
+	void shoot();
+
+	int collect();
 	 
 }

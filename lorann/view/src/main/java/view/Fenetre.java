@@ -8,6 +8,11 @@ import javax.swing.JLabel;
 
 public class Fenetre extends JFrame{
     	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1673052513013997822L;
+
 	public Fenetre() {
 	
 	JFrame Fenetre = new JFrame();

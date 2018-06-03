@@ -1,11 +1,12 @@
 package model;
 
-import java.awt.Image;
-import java.awt.Point;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
-import model.dao.ExampleDAO;
+import Element.mobile.Door;
+import Element.mobile.Hero;
+import Element.mobile.Key;
+import Element.mobile.Purse;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -14,41 +15,99 @@ import model.dao.ExampleDAO;
  * @version 1.0
  */
 public final class ModelFacade implements IModel {
+	
+	private IMap level;
+	private IMobile character;
+	private IMobile[] purses;
+	private IMobile[] monsters;
+	private IMobile energyBall;
+	private IMobile door;
 
     /**
      * Instantiates a new model facade.
      */
-    public ModelFacade() {
+    public ModelFacade(int level) throws SQLException, IOException {
         super();
+        this.setLevel(new Map(level));
+        this.setCharacter(new Hero((int)this.level.getCharacterPosition().getX(), (int)this.level.getCharacterPosition().getY(), this.level));
+
+        purses = new IMobile[this.getLevel().getPurses().length];
+        monsters = new IMobile[this.getLevel().getMonsters().length];
+        
+        for(int i = 0; i < purses.length; i++) {
+        	purses[i] = new Purse((int)this.getLevel().getPurses()[i].getX(), (int)this.getLevel().getPurses()[i].getY(), this.level);
+        	((Hero)this.getMyCharacter()).addPurse(purses[i]);
+        }
+        
+        for(int i = 0; i < monsters.length; i++) {
+        	
+        }
+        
+        energyBall = new Key((int)this.getLevel().getEnergyBall().getX(), (int)this.getLevel().getEnergyBall().getY(), this.level);
+        ((Hero)this.getMyCharacter()).addEnergyBall(energyBall);
+        
+        door = new Door((int)this.getLevel().getDoor().getX(), (int)this.getLevel().getDoor().getY(), this.level);
+        ((Hero)this.getMyCharacter()).addDoor(door);
     }
 
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleById(int)
+    /**
+     * Gets the level by id.
+     *
+     * @param id
+     *            the id
+     * @return the map in text format by id
+     * @throws SQLException
+     *             the SQL exception
      */
-    @Override
-    public Example ShowLevelByID (final int id) throws SQLException {
+    /*@Override
+    public String ShowLevelByID (final int id) throws SQLException {
         return ExampleDAO.ShowLevelByID(id);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleByName(java.lang.String)
-     */
-    /*
+    }*/
+    
     @Override
-    public Example getExampleByName(final String name) throws SQLException {
-        return ExampleDAO.getExampleByName(name);
-    }
-    */
+	public IMap getLevel() {
+		return this.level;
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getAllExamples()
-     */
-    @Override
-    public List<Example> ShowAllLevels() throws SQLException {
-        return ExampleDAO.ShowAllLevels();
-    }
+	@Override
+	public IMobile getMyCharacter() {
+		return this.character;
+	}
+	
+	private void setLevel(IMap level) {
+		this.level = level;
+	}
 
+	private void setCharacter(IMobile character) {
+		this.character = character;
+	}
+
+	public IMobile[] getPurses() {
+		return purses;
+	}
+
+	public void setPurses(IMobile[] purses) {
+		this.purses = purses;
+	}
+
+	public IMobile[] getMonsters() {
+		return monsters;
+	}
+
+	public void setMonsters(IMobile[] monsters) {
+		this.monsters = monsters;
+	}
+
+	public IMobile getEnergyBall() {
+		return this.energyBall;
+	}
+	
+	public IMobile getDoor() {
+		return this.door;
+	}
+
+	@Override
+	public boolean hasCharacterWon() {
+		return ((Hero)this.getMyCharacter()).hasWon();
+	}
 }
