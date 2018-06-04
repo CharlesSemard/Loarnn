@@ -25,6 +25,8 @@ public final class ModelFacade implements IModel {
 
     /**
      * Instantiates a new model facade.
+     * @param level
+     * 				the level on the map 
      */
     public ModelFacade(int level) throws SQLException, IOException {
         super();
@@ -64,48 +66,82 @@ public final class ModelFacade implements IModel {
         return ExampleDAO.ShowLevelByID(id);
     }*/
     
+    /**
+     * Get the level on IMap interface
+     * @return level
+     */
     @Override
 	public IMap getLevel() {
 		return this.level;
 	}
-	
+	/**
+	 * Set the level 
+	 * @param level
+	 */
 	private void setLevel(IMap level) {
 		this.level = level;
 	}
-
+	/**
+	 * Set the hero 
+	 * @param character
+	 */
 	private void setCharacter(IMobile character) {
 		this.Hero = character;
 	}
-
+	/**
+	 * Get the purses on IMobile interface 
+	 * @return purses
+	 */
 	public IMobile[] getPurses() {
 		return purses;
 	}
-
+	/**
+	 * Set the purse on this level 
+	 * @param purses
+	 */
 	public void setPurses(IMobile[] purses) {
 		this.purses = purses;
 	}
-
+	/**
+	 * Get the monsters on the IMobile interface
+	 * @return monsters
+	 */
 	public IMobile[] getMonsters() {
 		return monsters;
 	}
-
+	/**
+	 * Set the monsters on the IMobile interface
+	 * @param monsters
+	 */
 	public void setMonsters(IMobile[] monsters) {
 		this.monsters = monsters;
 	}
-
+	/**
+	 * Get the energyball on the IMobile interface
+	 * @return energyBall
+	 */
 	public IMobile getEnergyBall() {
 		return this.energyBall;
 	}
-	
+	/**
+	 * Get the door on the IMobile interface
+	 * @return door
+	 */
 	public IMobile getDoor() {
 		return this.door;
 	}
-
+	/**
+	 * if the hero has won 
+	 * @return hero win 
+	 */
 	@Override
 	public boolean hasCharacterWon() {
 		return ((Hero)this.getHero()).hasWon();
 	}
-
+	/**
+	 * Get hero on the interface IMobile 
+	 * @return Hero
+	 */
 	@Override
 	public IMobile getHero() {
 		return this.Hero;

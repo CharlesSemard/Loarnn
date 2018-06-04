@@ -6,9 +6,9 @@ import model.Sprite;
 
 
 public class Spell extends Mobile{
-	
-private static Sprite fireball_1;
-	
+	/** The Constant SPRITE. */
+	private static Sprite fireball_1;
+	/** Instantiates a new Spell. */
 	public Spell(IMap level, int x, int y) {
 		super(fireball_1, Permeability.SPELL, level, x, y);
 	}

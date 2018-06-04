@@ -8,6 +8,7 @@ import model.Sprite;
 
 public class Door extends Mobile {
 
+	/** The SPRITE. */
 	private static Sprite opened = new Sprite('H', "gate_open");
 	private static Sprite closed = new Sprite('H', "gate_closed");
 	
@@ -15,10 +16,22 @@ public class Door extends Mobile {
 		super(closed, Permeability.COLLECTIBLE, level, x, y);
 		opened.loadImage();
 	}
-
+	
+    /**
+     * Do nothing.
+     *
+     * @return the default 
+     */	
+	
 	@Override
 	public void doNothing() {
 	}
+	
+    /**
+     * Gets items like door
+     *
+     * @return score  
+     */		
 	
 	public int collect() {
 		if(this.isAlive()) {
@@ -26,6 +39,12 @@ public class Door extends Mobile {
 		}
 		return 0;
 	}
+	
+    /**
+     * Causes the door to die and replaces it
+     *
+     * @return the open door  
+     */	
 	
 	@Override
 	public void die() {

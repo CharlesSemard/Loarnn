@@ -10,6 +10,7 @@ import model.Sprite;
 
 public class Hero extends Mobile{
 	
+	/** The SPRITE. */
 	private static Sprite lorann_b = new Sprite(' ', "lorann_b");
 	private static Sprite lorann_bl = new Sprite(' ' ,"lorann_bl");
 	private static Sprite lorann_br = new Sprite(' ' ,"lorann_br");
@@ -34,6 +35,19 @@ public class Hero extends Mobile{
 	Boolean hasSpell = true;
 	/** Is the gate open ? */
 	Boolean hasKey = false;
+	
+    /**
+     * Instantiates a new hero.
+     * 
+     * Generate the sprite of the hero
+     *
+     * @param x
+     *            the horizontal
+     * @param y
+     *            the vertical
+     * @param level
+     *            the position of hero on the map
+     */
 	
 	public Hero(int x, int y, IMap level) throws IOException {
 		super(lorann_r, Permeability.BLOCKING, level);
@@ -64,6 +78,10 @@ public class Hero extends Mobile{
 		this.monsters = new ArrayList<>();
 	}
 	
+    /**
+     * Do nothing.
+     */	
+	
 	@Override
 	public void doNothing() {
 		int index = 0;
@@ -80,12 +98,22 @@ public class Hero extends Mobile{
 		this.setHasMoved();
 	}
 	
+    /**
+     * Define the movements for the special boxes like the monster or a purse.
+     */	
+	
 	public void specialCase(int x, int y) {
 		if(this.isOnKey(x, this.getY())) {}
 		else if(this.isOnDoor(x, this.getY())) {}
 		else if(this.isHit(x, this.getY())) {}
 		else if(this.isOnPurse(x, this.getY())) {}
 	}
+	
+    /**
+     * Gets the moveLeft.
+     *
+     * @return true or false for moveLeft
+     */	
 	
 	@Override
 	public boolean moveLeft() {
@@ -96,6 +124,12 @@ public class Hero extends Mobile{
 		return true;
 	}
 	
+    /**
+     * Gets the moveRight.
+     *
+     * @return true or false for moveRight
+     */	
+	
 	@Override
 	public boolean moveRight() {
 		super.moveRight();
@@ -104,6 +138,12 @@ public class Hero extends Mobile{
 		this.setHasMoved();
 		return true;
 	}
+	
+    /**
+     * Gets the moveUp.
+     *
+     * @return true or false for moveUp
+     */	
 	
 	@Override
 	public boolean moveUp() {
@@ -114,6 +154,12 @@ public class Hero extends Mobile{
 		return true;
 	}
 	
+    /**
+     * Gets the moveDown.
+     *
+     * @return true or false for moveDown
+     */	
+	
 	@Override
 	public boolean moveDown() {
 		super.moveDown();
@@ -122,6 +168,12 @@ public class Hero extends Mobile{
 		this.setHasMoved();
 		return true;
 	}
+	
+    /**
+     * when the hero passes on a purse
+     *
+     * @return score  
+     */	
 	
 	public boolean isOnPurse(int newX, int newY) {
 		for(IMobile purse : purses) {
@@ -135,6 +187,11 @@ public class Hero extends Mobile{
 		return false;
 	}
 	
+    /**
+     * when the hero passes on a key
+     *
+     * @return the open door  
+     */	
 	public boolean isOnKey(int newX, int newY) {
 		if(key.getX() == newX && key.getY() == newY) {
 			key.collect();
@@ -147,6 +204,11 @@ public class Hero extends Mobile{
 		return false;
 	}
 	
+    /**
+     * when the hero passes on a door
+     *
+     * @return win or die  
+     */	
 	public boolean isOnDoor(int newX, int newY) {
 		if(gate.getX() == newX && gate.getY() == newY) {
 			if(hasKey) {
@@ -159,18 +221,35 @@ public class Hero extends Mobile{
 		return false;
 	}
 	
+	/**
+	 * add purse on the arrayList in Hero constructor
+	 * @param purse
+	 */
+	
 	public void addPurse(IMobile purse) {
 		purses.add(purse);
 	}
+	
+	/**
+	 * add energyBall on the arrayList in Hero constructor
+	 * @param energyBall
+	 */
 	
 	public void addEnergyBall(IMobile energyBall) {
 		this.key = energyBall;
 	}
 	
+	/**
+	 * add monster on the arrayList in Hero constructor
+	 * @param monster
+	 */
 	public void addMonster(IMobile monster) {
 		this.monsters.add(monster);
 	}
-	
+	/**
+	 * add door on the arrayList in Hero constructor
+	 * @param door
+	 */
 	public void addDoor(IMobile door) {
 		this.gate = door;
 	}
@@ -179,6 +258,10 @@ public class Hero extends Mobile{
 	public int collect() {
 		return 0;
 	}
+	
+	/**
+	 * @return the victory 
+	 */
 
 	public boolean hasWon() {
 		return this.won;

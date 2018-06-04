@@ -14,9 +14,9 @@ public abstract class Mobile extends Element implements IMobile {
 	private int speed;
 	/** Mobile alive */
 	private Boolean alive = true;
-	
+	/** Position of element */	
 	private Point position;
-	
+	/** The level on the map */	
 	private IMap level;
 	
 	/**
@@ -28,10 +28,16 @@ public abstract class Mobile extends Element implements IMobile {
 	 */
 	private int lastY = 0;
 	
+	/** Refresh the map */	
 	public void setHasMoved() {
 		this.level.setElementHasChanged();
 	}
 	
+    /**
+     * Gets the moveUp.
+     *
+     * @return true or false for moveUp
+     */
 	@Override
 	public boolean moveUp() {
 		if(this.setY(this.getY() - 1)) {
@@ -42,6 +48,12 @@ public abstract class Mobile extends Element implements IMobile {
 		return false;
 	}
 	
+    /**
+     * Gets the moveDown.
+     *
+     * @return true or false for moveDown
+     */	
+	
 	@Override
 	public boolean moveDown() {
 		if(this.setY(this.getY() + 1)) {
@@ -51,6 +63,12 @@ public abstract class Mobile extends Element implements IMobile {
 		}
 		return false;
 	}
+	
+    /**
+     * Gets the moveLeft.
+     *
+     * @return true or false for moveLeft
+     */	
 
 	@Override
 	public boolean moveLeft() {
@@ -62,6 +80,11 @@ public abstract class Mobile extends Element implements IMobile {
 		return false;
 	}
 
+    /**
+     * Gets the moveRight.
+     *
+     * @return true or false for moveRight
+     */	
 	@Override
 	public boolean moveRight() {
 		if(this.setX(this.getX() + 1)) {
@@ -71,10 +94,35 @@ public abstract class Mobile extends Element implements IMobile {
 		}
 		return false;
 	}
+    /**
+     * Instantiates a new element.
+     *
+     * @param sprite
+     *            the sprite
+     * @param permeability
+     *            the permeability
+     * @param level
+     * 			  the level on the map 
+     */
 	
 	public Mobile(Sprite sprite, Permeability permeability, IMap level) {
 		this(sprite, permeability, level, 0, 0);
 	}
+	
+    /**
+     * Instantiates a new element.
+     *
+     * @param sprite
+     *            the sprite
+     * @param permeability
+     *            the permeability
+     * @param level
+     * 			  the level on the map 
+     * @param x
+     *            the horizontal position
+     * @param y
+     *            the vertical position
+     */
 
 	public Mobile(Sprite sprite, Permeability permeability, IMap level, int x, int y) {
 		super(sprite, permeability);
@@ -84,18 +132,37 @@ public abstract class Mobile extends Element implements IMobile {
 		this.getPosition().y = y;
 	}
 	
+	/**
+	 * Gets the level
+	 * @return the level
+	 */
 	protected IMap getLevel() {
 		return this.level;
 	}
+	
+	/**
+	 * 
+	 * @param newX
+	 * @param newY
+	 * @return the permeability is blocking or penetrable
+	 */
 	
 	public boolean isOnWall(int newX, int newY) {
 		return (this.getLevel().getOnTheMapXY(newX, newY).getPermeability() == Permeability.BLOCKING);
 	}
 	
+	/**
+	 * @return x
+	 */
 	@Override
 	public int getX() {
 		return this.getPosition().x;
 	}
+	/**
+	 * 
+	 * @param x
+	 * @return true or false for the x 
+	 */
 	
 	public boolean setX(int x) {
 		if (!this.isOnWall(x, this.getY())) {
@@ -104,11 +171,18 @@ public abstract class Mobile extends Element implements IMobile {
         }
 		return false;
 	}
-
+	/**
+	 * @return y
+	 */
 	@Override
 	public int getY() {
 		return this.getPosition().y;
 	}
+	/**
+	 * 
+	 * @param y
+	 * @return true or false for the y
+	 */
 	
 	public boolean setY(int y) {
 		if (!this.isOnWall(this.getX(), y)) {
@@ -117,39 +191,69 @@ public abstract class Mobile extends Element implements IMobile {
         }
 		return false;
 	}
+	
+	/**
+	 * Initial the postion of hero
+	 * @param x
+	 */
 
 	public void initX(int x) {
 		this.getPosition().x = x;
 	}
 	
+	/**
+	 * Initial the postion of hero
+	 * @param y
+	 */
+	
 	public void initY(int y) {
 		this.getPosition().y = y;
 	}
 	
+	/**
+	 * 
+	 * @return speed
+	 */
+	
 	public int getSpeed() {
 		return speed;
 	}
+	/**
+	 * check if the hero is alive 
+	 * @return alive 
+	 */
 	
 	@Override
 	public boolean isAlive() {
 		return this.alive;
 	}
-	
+	/**
+	 * @param newX
+	 * @param newY
+	 * @return the permeability 
+	 */
 	@Override
 	public boolean isHit(int newX, int newY) {
 		return (this.getLevel().getOnTheMapXY(newX, newY).getPermeability() == Permeability.MONSTER);
 	}
 	
+	/**
+	 * if the mobile element die the map was refresh
+	 */
+	
 	protected void die() {
 		this.alive = false;
 		this.setHasMoved();
 	}
-	
+	/**
+	 * the position on the map
+	 * @return position
+	 */	
 	@Override
 	public Point getPosition() {
 		return this.position;
 	}
-
+	
 	@Override
 	public void shoot() {
 		int x = this.getX() - lastX;
