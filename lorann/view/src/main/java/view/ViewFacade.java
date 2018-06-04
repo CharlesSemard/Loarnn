@@ -40,7 +40,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     private IMobile[] purses;
     
     /** The monsters. */
-    //private IMobile[] monsters;
+    private IMobile[] monsters;
     
     private IMobile key;
     
@@ -92,14 +92,13 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      */
 	@Override
 	public void run() {
-		BoardFrame boardFrame = new BoardFrame("LOrann", false);
+		BoardFrame boardFrame = new BoardFrame("Loraaaan Jenkins", false);
 		boardFrame.setDimension(new Dimension(this.getLevel().getWidth(), this.getLevel().getHeight()));
         boardFrame.setDisplayFrame(this.fullView);
         boardFrame.setSize(this.fullView.width * squareSize - 32, this.fullView.height * squareSize);
         boardFrame.setHeightLooped(false);
         boardFrame.addKeyListener(this);
         boardFrame.setFocusable(true);
-        //boardFrame.setFocusTraversalKeysEnabled(false);
 		
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
             for (int y = 0; y < this.getLevel().getHeight(); y++) {
@@ -123,14 +122,14 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 			e.printStackTrace();
 		}
 		
-		/*for(IMobile monster : monsters) {
+		for(IMobile monster : monsters) {
 			try {
 				((IElement) monster).getSprite().loadImage();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			boardFrame.addPawn(monster);
-		}*/
+		}
 		
 		try {
 			((IElement) this.door).getSprite().loadImage();

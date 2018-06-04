@@ -20,6 +20,7 @@ public class Door extends Mobile {
 	public void doNothing() {
 	}
 	
+	
 	public int collect() {
 		if(this.isAlive()) {
 			this.die();

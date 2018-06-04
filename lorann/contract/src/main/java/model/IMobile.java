@@ -22,6 +22,14 @@ public interface IMobile extends IPawn {
 	
 	boolean moveDown();
 	
+	boolean moveUpRight();
+	
+	boolean moveUpLeft();
+	
+	boolean moveDownRight();
+	
+	boolean moveDownLeft();
+	
 	void doNothing();
 
 	boolean isAlive();

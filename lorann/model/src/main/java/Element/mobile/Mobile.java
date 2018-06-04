@@ -72,6 +72,46 @@ public abstract class Mobile extends Element implements IMobile {
 		return false;
 	}
 	
+	@Override
+	public boolean moveUpRight() {
+		if(this.setY(this.getY() - 1)) {
+			this.lastY = -1;
+			this.lastX = 0;
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean moveDownLeft() {
+		if(this.setY(this.getY() + 1)) {
+			this.lastY = 1;
+			this.lastX = 0;
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean moveUpLeft() {
+		if(this.setX(this.getX() - 1)) {
+			this.lastX = -1;
+			this.lastY = 0;
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean moveDownRight() {
+		if(this.setX(this.getX() + 1)) {
+			this.lastX = 1;
+			this.lastY = 0;
+			return true;
+		}
+		return false;
+	}
+	
 	public Mobile(Sprite sprite, Permeability permeability, IMap level) {
 		this(sprite, permeability, level, 0, 0);
 	}

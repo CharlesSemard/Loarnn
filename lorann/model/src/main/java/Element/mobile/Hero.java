@@ -155,7 +155,6 @@ public class Hero extends Mobile{
 			}
 			return true;
 		}
-		
 		return false;
 	}
 	

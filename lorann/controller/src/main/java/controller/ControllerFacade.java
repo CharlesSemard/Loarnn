@@ -53,9 +53,9 @@ public class ControllerFacade implements IController, IOrderPerformer {
         while(this.getModel().getHero().isAlive()) {
         	Thread.sleep(speed);
         	
-        	/*for(IMobile monster : this.getModel().getMonsters()) {
+        	for(IMobile monster : this.getModel().getMonsters()) {
         		((IMonster)monster).move(); 
-        	}*/
+        	}
         	
         	if(this.getStackOrder() != null) {
         		switch(this.getStackOrder().getKeyCode()) {
