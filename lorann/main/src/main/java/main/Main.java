@@ -32,11 +32,10 @@ public abstract class Main {
     	//Vraie fonction à garder dans le main
     	Fenetre.Menu();
     	
-    	
-    	
+    	Thread.sleep(8000);
     	
     	//Bloc de Fonctions de test du jeu à placer dans les boutons des fenêtres...
-    	System.out.print("test");
+    	
     	final IModel model = new ModelFacade(Fenetre.level);
     	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor());
         final ControllerFacade controller = new ControllerFacade(view, model);
