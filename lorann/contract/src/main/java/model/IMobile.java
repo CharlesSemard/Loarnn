@@ -14,13 +14,13 @@ public interface IMobile extends IPawn {
 	
 	Point getPosition();
 	
-	void moveUp();
+	boolean moveUp();
 	
-	void moveLeft();
+	boolean moveLeft();
 	
-	void moveRight();
+	boolean moveRight();
 	
-	void moveDown();
+	boolean moveDown();
 	
 	void doNothing();
 

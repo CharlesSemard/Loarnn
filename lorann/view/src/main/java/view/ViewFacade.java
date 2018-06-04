@@ -39,6 +39,9 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     
     private IMobile[] purses;
     
+    /** The monsters. */
+    //private IMobile[] monsters;
+    
     private IMobile key;
     
     private IMobile door;
@@ -89,7 +92,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      */
 	@Override
 	public void run() {
-		BoardFrame boardFrame = new BoardFrame("Lorann", false);
+		BoardFrame boardFrame = new BoardFrame("LOrann", false);
 		boardFrame.setDimension(new Dimension(this.getLevel().getWidth(), this.getLevel().getHeight()));
         boardFrame.setDisplayFrame(this.fullView);
         boardFrame.setSize(this.fullView.width * squareSize - 32, this.fullView.height * squareSize);

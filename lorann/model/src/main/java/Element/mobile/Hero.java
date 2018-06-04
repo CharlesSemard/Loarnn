@@ -88,35 +88,39 @@ public class Hero extends Mobile{
 	}
 	
 	@Override
-	public void moveLeft() {
+	public boolean moveLeft() {
 		super.moveLeft();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_l);
 		this.setHasMoved();
+		return true;
 	}
 	
 	@Override
-	public void moveRight() {
+	public boolean moveRight() {
 		super.moveRight();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_r);
 		this.setHasMoved();
+		return true;
 	}
 	
 	@Override
-	public void moveUp() {
+	public boolean moveUp() {
 		super.moveUp();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_u);
 		this.setHasMoved();
+		return true;
 	}
 	
 	@Override
-	public void moveDown() {
+	public boolean moveDown() {
 		super.moveDown();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_b);
 		this.setHasMoved();
+		return true;
 	}
 	
 	public boolean isOnPurse(int newX, int newY) {
@@ -146,7 +150,7 @@ public class Hero extends Mobile{
 	public boolean isOnDoor(int newX, int newY) {
 		if(gate.getX() == newX && gate.getY() == newY) {
 			if(hasKey) {
-				//this.won = true;
+				this.won = true;
 				this.die();
 			}
 			return true;

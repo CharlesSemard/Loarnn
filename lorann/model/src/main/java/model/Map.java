@@ -109,12 +109,12 @@ public class Map extends Observable implements IMap {
 
 	@Override
 	public Observable getObservable() {
-		return null;
+		return this;
 	}
 	
 	@Override
 	public boolean setSpellOnTheMapXY(int x, int y, IElement spell) {
-		if(this.getOnTheMapXY(x, y).getPermeability() == Permeability.PENETRABLE) {
+		if(this.getOnTheMapXY(x, y).getPermeability() == Permeability.SPELL) {
 			this.onTheMap[x][y] = spell;
 			return true;
 		}

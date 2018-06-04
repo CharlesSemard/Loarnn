@@ -33,31 +33,43 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 	
 	@Override
-	public void moveUp() {
-		this.setY(this.getY() - 1);
-		this.lastX = 0;
-		this.lastY = -1;
+	public boolean moveUp() {
+		if(this.setY(this.getY() - 1)) {
+			this.lastY = -1;
+			this.lastX = 0;
+			return true;
+		}
+		return false;
 	}
 	
 	@Override
-	public void moveDown() {
-		this.setY(this.getY() + 1);
-		this.lastX = 0;
-		this.lastY = 1;
+	public boolean moveDown() {
+		if(this.setY(this.getY() + 1)) {
+			this.lastY = 1;
+			this.lastX = 0;
+			return true;
+		}
+		return false;
 	}
 
 	@Override
-	public void moveLeft() {
-		this.setX(this.getX() - 1);
-		this.lastX = -1;
-		this.lastY = 0;
+	public boolean moveLeft() {
+		if(this.setX(this.getX() - 1)) {
+			this.lastX = -1;
+			this.lastY = 0;
+			return true;
+		}
+		return false;
 	}
 
 	@Override
-	public void moveRight() {
-		this.setX(this.getX() + 1);
-		this.lastX = 1;
-		this.lastY = 0;
+	public boolean moveRight() {
+		if(this.setX(this.getX() + 1)) {
+			this.lastX = 1;
+			this.lastY = 0;
+			return true;
+		}
+		return false;
 	}
 	
 	public Mobile(Sprite sprite, Permeability permeability, IMap level) {
@@ -85,10 +97,12 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.getPosition().x;
 	}
 	
-	public void setX(int x) {
+	public boolean setX(int x) {
 		if (!this.isOnWall(x, this.getY())) {
 			this.getPosition().x = x;
+			return true;
         }
+		return false;
 	}
 
 	@Override
@@ -96,10 +110,12 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.getPosition().y;
 	}
 	
-	public void setY(int y) {
+	public boolean setY(int y) {
 		if (!this.isOnWall(this.getX(), y)) {
 			this.getPosition().y = y;
+			return true;
         }
+		return false;
 	}
 
 	public void initX(int x) {

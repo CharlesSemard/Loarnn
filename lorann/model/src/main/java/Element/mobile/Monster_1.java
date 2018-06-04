@@ -24,19 +24,19 @@ public abstract class Monster_1 extends Monster {
 		return 0;
 	}
 
-	/*@Override
+	@Override
 	public void move() {
 		if(this.goingUp) {
-			if(!this.moveUp()) {
+			if(this.moveUp()) {
 				this.moveDown();
 				goingUp = false;
 			}
 		}
 		else {
-			if(!this.moveDown()) {
+			if(this.moveDown()) {
 				this.moveUp();
 				goingUp = true;
 			}
 		}
-	}*/
+	}
 }

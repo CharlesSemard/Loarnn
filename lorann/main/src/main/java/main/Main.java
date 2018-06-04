@@ -37,7 +37,7 @@ public abstract class Main {
     	
     	//Bloc de Fonctions de test du jeu à placer dans les boutons des fenêtres...
     	
-    	final IModel model = new ModelFacade(1);
+    	final IModel model = new ModelFacade(5);
     	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor());
         final ControllerFacade controller = new ControllerFacade(view, model);
         
