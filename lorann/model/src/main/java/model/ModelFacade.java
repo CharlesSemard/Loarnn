@@ -17,7 +17,7 @@ import Element.mobile.Purse;
 public final class ModelFacade implements IModel {
 	
 	private IMap level;
-	private IMobile character;
+	private IMobile Hero;
 	private IMobile[] purses;
 	private IMobile[] monsters;
 	private IMobile energyBall;
@@ -36,7 +36,7 @@ public final class ModelFacade implements IModel {
         
         for(int i = 0; i < purses.length; i++) {
         	purses[i] = new Purse((int)this.getLevel().getPurses()[i].getX(), (int)this.getLevel().getPurses()[i].getY(), this.level);
-        	((Hero)this.getMyCharacter()).addPurse(purses[i]);
+        	((Hero)this.getHero()).addPurse(purses[i]);
         }
         
         for(int i = 0; i < monsters.length; i++) {
@@ -44,10 +44,10 @@ public final class ModelFacade implements IModel {
         }
         
         energyBall = new Key((int)this.getLevel().getEnergyBall().getX(), (int)this.getLevel().getEnergyBall().getY(), this.level);
-        ((Hero)this.getMyCharacter()).addEnergyBall(energyBall);
+        ((Hero)this.getHero()).addEnergyBall(energyBall);
         
         door = new Door((int)this.getLevel().getDoor().getX(), (int)this.getLevel().getDoor().getY(), this.level);
-        ((Hero)this.getMyCharacter()).addDoor(door);
+        ((Hero)this.getHero()).addDoor(door);
     }
 
     /**
@@ -68,18 +68,13 @@ public final class ModelFacade implements IModel {
 	public IMap getLevel() {
 		return this.level;
 	}
-
-	@Override
-	public IMobile getMyCharacter() {
-		return this.character;
-	}
 	
 	private void setLevel(IMap level) {
 		this.level = level;
 	}
 
 	private void setCharacter(IMobile character) {
-		this.character = character;
+		this.Hero = character;
 	}
 
 	public IMobile[] getPurses() {
@@ -108,6 +103,11 @@ public final class ModelFacade implements IModel {
 
 	@Override
 	public boolean hasCharacterWon() {
-		return ((Hero)this.getMyCharacter()).hasWon();
+		return ((Hero)this.getHero()).hasWon();
+	}
+
+	@Override
+	public IMobile getHero() {
+		return this.Hero;
 	}
 }

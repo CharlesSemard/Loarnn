@@ -31,6 +31,7 @@ public class Door extends Mobile {
 	public void die() {
 		super.die();
 		this.setSprite(opened);
+		this.setHasMoved();
 	}
 
 }

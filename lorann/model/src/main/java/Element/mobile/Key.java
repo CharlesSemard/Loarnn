@@ -30,6 +30,7 @@ public class Key extends Mobile {
 	public void die() {
 		super.die();
 		this.setSprite(collected);
+		this.setHasMoved();
 	}
 
 }

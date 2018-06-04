@@ -57,8 +57,8 @@ public class Hero extends Mobile{
 		sprites[6] = lorann_b;
 		sprites[7] = lorann_bl;
 		
-		this.setX(x);
-		this.setY(y);
+		this.initX(x);
+		this.initY(y);
 		
 		this.purses = new ArrayList<>();
 		this.monsters = new ArrayList<>();
@@ -77,6 +77,7 @@ public class Hero extends Mobile{
 			this.setSprite(sprites[index + 1]);
 		else
 			this.setSprite(sprites[0]);
+		this.setHasMoved();
 	}
 	
 	public void specialCase(int x, int y) {

@@ -40,31 +40,11 @@ public class Map extends Observable implements IMap {
 		}
 	}
 	
-	/* model.model.Map
-	 * Fonction de Gwendall pour tester à partir d'un fichier txt, plus utile mtn je crois (PL)
-	 * Tu peux confirmer Gwendall stp ? Avant que je supprime et que ça casse tout !
-	 * 
-	 * (non-javadoc)
-	 */
-	/*public void fillOnTheMap() throws FileNotFoundException {
-	
-		try {
-			Scanner scanner = new Scanner(controller.ControllerFacade.getLevel1);
-			char Dimension[][] = new char [this.getHeight()][this.getWidth()];
-			while (scanner.hasNextLine()) {
-				String line = scanner.nextLine();
-				for (int Y=0; Y<this.getHeight();Y++) {
-				for (int X=0; X<this.getWidth(); X++) {
-					Dimension[Y][X] = line.charAt(X);
-				}
-				Y++;
-				}
-			}
-			scanner.close();
-		}catch(Exception e) {
-			e.getMessage().toString();
-		}
-	}*/
+	@Override
+	public void setElementHasChanged() {
+		this.setChanged();
+		this.notifyObservers();
+	}
 	
 	 /**
      * Load the mobile Elements on the map 
@@ -81,7 +61,7 @@ public class Map extends Observable implements IMap {
 		for(int y = 0; y < 12; y++) {
 			for(int x = 0; x < 20; x++) {
 				switch(levelArray[y].toCharArray()[x]) {
-					case 'x':
+					case 'P':
 						this.setCharacterPosition(new Point(x, y));
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
 						break;
@@ -94,6 +74,10 @@ public class Map extends Observable implements IMap {
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
 					case 'H':
 						this.door = new Point(x, y);
+						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
+					case 'x' :
+						Point temp = new Point(x, y);
+						this.monstersPositions.add(temp);
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
 					default: 
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.getSymbol(levelArray[y].toCharArray()[x]));

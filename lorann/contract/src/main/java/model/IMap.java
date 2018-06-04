@@ -54,4 +54,6 @@ public interface IMap {
 	Point getDoor();
 
 	boolean setSpellOnTheMapXY(int x, int y, IElement spell);
+	
+	void setElementHasChanged();
 }

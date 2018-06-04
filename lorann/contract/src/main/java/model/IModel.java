@@ -10,7 +10,7 @@ public interface IModel {
     
     IMap getLevel();
     
-    IMobile getMyCharacter();
+    IMobile getHero();
     
 	IMobile[] getPurses();
 	

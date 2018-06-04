@@ -48,33 +48,33 @@ public class ControllerFacade implements IController, IOrderPerformer {
      * @throws InterruptedException 
      */
     public void start() throws SQLException, InterruptedException, IOException {
-        while(this.getModel().getMyCharacter().isAlive()) {
+        while(this.getModel().getHero().isAlive()) {
         	Thread.sleep(speed);
         	if(this.getStackOrder() != null) {
         		switch(this.getStackOrder().getKeyCode()) {
         		case KeyEvent.VK_RIGHT:
-        			this.getModel().getMyCharacter().moveRight();
+        			this.getModel().getHero().moveRight();
         			break;
         		case KeyEvent.VK_LEFT:
-        			this.getModel().getMyCharacter().moveLeft();
+        			this.getModel().getHero().moveLeft();
         			break;
         		case KeyEvent.VK_UP:
-        			this.getModel().getMyCharacter().moveUp();
+        			this.getModel().getHero().moveUp();
         			break;
         		case KeyEvent.VK_DOWN:
-        			this.getModel().getMyCharacter().moveDown();
+        			this.getModel().getHero().moveDown();
         			break;
         		case KeyEvent.VK_SPACE:
-        			this.getModel().getMyCharacter().shoot();
+        			this.getModel().getHero().shoot();
         			break;
         		default:
-        			this.getModel().getMyCharacter().doNothing();
+        			this.getModel().getHero().doNothing();
         			break;
         		}
         		this.stackOrder = null;
         	}
         	else {
-        		this.getModel().getMyCharacter().doNothing();
+        		this.getModel().getHero().doNothing();
         	}
         	
         }

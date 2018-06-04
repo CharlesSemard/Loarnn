@@ -28,6 +28,10 @@ public abstract class Mobile extends Element implements IMobile {
 	 */
 	private int lastY = 0;
 	
+	public void setHasMoved() {
+		this.level.setElementHasChanged();
+	}
+	
 	@Override
 	public void moveUp() {
 		this.setY(this.getY() - 1);
@@ -98,6 +102,14 @@ public abstract class Mobile extends Element implements IMobile {
         }
 	}
 
+	public void initX(int x) {
+		this.getPosition().x = x;
+	}
+	
+	public void initY(int y) {
+		this.getPosition().y = y;
+	}
+	
 	public int getSpeed() {
 		return speed;
 	}
@@ -114,6 +126,7 @@ public abstract class Mobile extends Element implements IMobile {
 	
 	protected void die() {
 		this.alive = false;
+		this.setHasMoved();
 	}
 	
 	@Override

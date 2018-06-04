@@ -37,5 +37,6 @@ public class Purse extends Mobile {
 	public void die() {
 		super.die();
 		this.setSprite(collected);
+		this.setHasMoved();
 	}
 }
