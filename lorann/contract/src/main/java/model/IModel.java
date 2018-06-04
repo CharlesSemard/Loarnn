@@ -21,4 +21,6 @@ public interface IModel {
 	IMobile getDoor();
 
 	boolean hasCharacterWon();
+
+	IMobile getSpell();
 }

@@ -17,7 +17,7 @@ import showboard.BoardFrame;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Pierre-Loup MARTIGNE pierre-loup.martigne@viacesi.fr
  * @version 1.0
  */
 public class ViewFacade implements IView, KeyListener, Runnable {
@@ -60,6 +60,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         this.purses = purses;
         this.key = energyBall;
         this.door = door;
+        this.monsters = monsters;
     }
 
     /*
@@ -92,7 +93,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
      */
 	@Override
 	public void run() {
-		BoardFrame boardFrame = new BoardFrame("Loraaaan Jenkins", false);
+		BoardFrame boardFrame = new BoardFrame("Lorann", false);
 		boardFrame.setDimension(new Dimension(this.getLevel().getWidth(), this.getLevel().getHeight()));
         boardFrame.setDisplayFrame(this.fullView);
         boardFrame.setSize(this.fullView.width * squareSize - 32, this.fullView.height * squareSize);
@@ -118,23 +119,21 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 		try {
 			((IElement) this.key).getSprite().loadImage();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		for(IMobile monster : monsters) {
+		/*for(IMobile monster : monsters) {
 			try {
 				((IElement) monster).getSprite().loadImage();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			boardFrame.addPawn(monster);
-		}
+		}*/
 		
 		try {
 			((IElement) this.door).getSprite().loadImage();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

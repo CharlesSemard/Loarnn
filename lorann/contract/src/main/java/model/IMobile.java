@@ -39,5 +39,7 @@ public interface IMobile extends IPawn {
 	void shoot();
 
 	int collect();
+	
+	void move();
 	 
 }

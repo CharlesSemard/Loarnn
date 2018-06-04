@@ -22,6 +22,8 @@ public final class ModelFacade implements IModel {
 	private IMobile[] monsters;
 	private IMobile energyBall;
 	private IMobile door;
+	/** The spell */
+	private IMobile spell;
 
     /**
      * Instantiates a new model facade.
@@ -49,20 +51,6 @@ public final class ModelFacade implements IModel {
         door = new Door((int)this.getLevel().getDoor().getX(), (int)this.getLevel().getDoor().getY(), this.level);
         ((Hero)this.getHero()).addDoor(door);
     }
-
-    /**
-     * Gets the level by id.
-     *
-     * @param id
-     *            the id
-     * @return the map in text format by id
-     * @throws SQLException
-     *             the SQL exception
-     */
-    /*@Override
-    public String ShowLevelByID (final int id) throws SQLException {
-        return ExampleDAO.ShowLevelByID(id);
-    }*/
     
     @Override
 	public IMap getLevel() {
@@ -109,5 +97,13 @@ public final class ModelFacade implements IModel {
 	@Override
 	public IMobile getHero() {
 		return this.Hero;
+	}
+	
+	/**
+	 * Gets the spell
+	 */
+	@Override
+	public IMobile getSpell() {
+		return this.spell;
 	}
 }

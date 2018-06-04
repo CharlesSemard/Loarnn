@@ -22,11 +22,11 @@ public abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Record of the last move made
 	 */
-	private int lastX = 0;
+	protected int lastX = 0;
 	/**
 	 * Record of the last move made
 	 */
-	private int lastY = 0;
+	protected int lastY = 0;
 	
 	public void setHasMoved() {
 		this.level.setElementHasChanged();
@@ -182,19 +182,36 @@ public abstract class Mobile extends Element implements IMobile {
 	
 	protected void die() {
 		this.alive = false;
-		this.setHasMoved();
 	}
 	
 	@Override
 	public Point getPosition() {
 		return this.position;
 	}
+	
+	/**
+	 * Spawn a Spell turning parameter alive (back) to true
+	 */
+	public void spawnSpell() {
+		this.alive = true;
+	}
 
-	@Override
-	public void shoot() {
-		int x = this.getX() - lastX;
-		int y = this.getY() - lastY;
-		this.level.setSpellOnTheMapXY(x, y, new Spell(this.getLevel(), x, y));
+	public boolean setPosition(int x, int y) {
+		if(this.getLevel().getOnTheMapXY(x, y).getPermeability() != Permeability.BLOCKING) {
+			this.getPosition().x = x;
+			this.getPosition().y = y;
+			return true;
+		}
+		return false;
 	}
 	
+	/**
+	 * Spawns a spell (@see MyCharacter class)
+	 */
+	public void shoot() {}
+	
+	/**
+	 * Defines a generic method for the movement of the mobile element (@see monsters and spell)
+	 */
+	public void move() {}
 }
