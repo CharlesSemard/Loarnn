@@ -92,6 +92,7 @@ public class Hero extends Mobile{
 		super.moveLeft();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_l);
+		this.setHasMoved();
 	}
 	
 	@Override
@@ -99,6 +100,7 @@ public class Hero extends Mobile{
 		super.moveRight();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_r);
+		this.setHasMoved();
 	}
 	
 	@Override
@@ -106,6 +108,7 @@ public class Hero extends Mobile{
 		super.moveUp();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_u);
+		this.setHasMoved();
 	}
 	
 	@Override
@@ -113,6 +116,7 @@ public class Hero extends Mobile{
 		super.moveDown();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_b);
+		this.setHasMoved();
 	}
 	
 	public boolean isOnPurse(int newX, int newY) {

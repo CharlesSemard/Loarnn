@@ -96,7 +96,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         boardFrame.setHeightLooped(false);
         boardFrame.addKeyListener(this);
         boardFrame.setFocusable(true);
-        boardFrame.setFocusTraversalKeysEnabled(false);
+        //boardFrame.setFocusTraversalKeysEnabled(false);
 		
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
             for (int y = 0; y < this.getLevel().getHeight(); y++) {
@@ -119,6 +119,15 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		/*for(IMobile monster : monsters) {
+			try {
+				((IElement) monster).getSprite().loadImage();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			boardFrame.addPawn(monster);
+		}*/
 		
 		try {
 			((IElement) this.door).getSprite().loadImage();

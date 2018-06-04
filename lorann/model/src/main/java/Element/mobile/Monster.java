@@ -1,10 +1,11 @@
 package Element.mobile;
 
 import model.IMap;
+import model.IMonster;
 import model.Permeability;
 import model.Sprite;
 
-public abstract class Monster extends Mobile{
+public abstract class Monster extends Mobile implements IMonster{
 
 
 	Monster(Sprite sprite, IMap level, int x, int y) {
@@ -17,4 +18,6 @@ public abstract class Monster extends Mobile{
 		}
 		return false;
 	}
+	
+	public abstract void move();
 }
