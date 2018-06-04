@@ -3,6 +3,7 @@ package Element.mobile;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Element.mobile.auto.Spell;
 import model.IMap;
 import model.IMobile;
 import model.Permeability;
@@ -234,11 +235,11 @@ public class Hero extends Mobile{
 	 * @param newY
 	 * 		Y coordinate
 	 */
-	/*public boolean isOnSpell(int newX, int newY) {
+	public boolean isOnSpell(int newX, int newY) {
 		if(spell.getX() == newX && spell.getY() == newY)
 			return true;
 		return false;
-	}*/
+	}
 	
 	/**
 	 * add purse on the arrayList in Hero constructor

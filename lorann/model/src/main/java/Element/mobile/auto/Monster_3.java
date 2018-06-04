@@ -1,4 +1,4 @@
-package Element.mobile;
+package Element.mobile.auto;
 
 import java.util.Random;
 
@@ -16,12 +16,6 @@ public class Monster_3 extends Monster {
 	@Override
 	public void doNothing() {
 		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public int collect() {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 	
 	/** AI Random */
@@ -52,5 +46,11 @@ public class Monster_3 extends Monster {
 				break;
 			}
 		}
+	}
+
+	@Override
+	public int collect() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import controller.ControllerFacade;
+import controller.IController;
 import model.IModel;
 import model.ModelFacade;
 import view.ViewFacade;
@@ -32,13 +33,13 @@ public abstract class Main {
     	//Vraie fonction à garder dans le main
     	Fenetre.Menu();
     	
-    	Thread.sleep(8000);
+    	//Thread.sleep(8000);
     	
     	//Bloc de Fonctions de test du jeu à placer dans les boutons des fenêtres...
     	
-    	final IModel model = new ModelFacade(Fenetre.level);
-    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor());
-        final ControllerFacade controller = new ControllerFacade(view, model);
+    	final IModel model = new ModelFacade(2);
+    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor(), null);
+        final IController controller = new ControllerFacade(view, model);
         view.setOrderPerformer(controller.getOrderPerformer());
         controller.start();
         

@@ -63,14 +63,14 @@ public interface IMap {
 	 * @return the purse position
 	 */
 	
-	Point[] getPurses();
+	IMobile[] getPurses();
 	
 	/**
 	 * Gets the monster position 
 	 * @return the monster position
 	 */
 	
-	Point[] getMonsters();
+	IMobile[] getMonsters();
 	
 	/**
 	 * Gets the EnergyBall position 

@@ -1,9 +1,10 @@
-package Element.mobile;
+package Element.mobile.auto;
 
 import model.IMap;
+import model.IMonster;
 import model.Sprite;
 
-public abstract class Monster_1 extends Monster {
+public class Monster_1 extends Monster implements IMonster {
 	
 	private static Sprite sprite = new Sprite('z', "monster_1");
 	
@@ -15,11 +16,6 @@ public abstract class Monster_1 extends Monster {
 
 	@Override
 	public void doNothing() {
-	}
-
-	@Override
-	public int collect() {
-		return 0;
 	}
 
 	/** AI Vertical */
@@ -37,5 +33,11 @@ public abstract class Monster_1 extends Monster {
 				goingUp = true;
 			}
 		}
+	}
+
+	@Override
+	public int collect() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

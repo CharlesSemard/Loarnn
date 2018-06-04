@@ -45,12 +45,15 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     private IMobile key;
     
     private IMobile door;
+    
+    /** The spell. */
+    //private IMobile spell;
 
 	/**
      * Instantiates a new view facade.
 	 * @throws IOException 
      */
-    public ViewFacade(IMap level, IMobile Hero, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) throws IOException {
+    public ViewFacade(IMap level, IMobile Hero, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door, IMobile spell) throws IOException {
         this.setLevel(level);
         this.setHero(Hero);
         ((IElement) this.getHero()).getSprite().loadImage();
@@ -61,6 +64,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         this.key = energyBall;
         this.door = door;
         this.monsters = monsters;
+        //this.spell = spell;
     }
 
     /*
@@ -117,29 +121,44 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 		}
 		
 		try {
-			((IElement) this.key).getSprite().loadImage();
+			this.door.getSprite().loadImage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		/*for(IMobile monster : monsters) {
+		try {
+			 this.key.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		for(IMobile monster : monsters) {
 			try {
-				((IElement) monster).getSprite().loadImage();
+				monster.getSprite().loadImage();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			boardFrame.addPawn(monster);
-		}*/
+		}
 		
 		try {
-			((IElement) this.door).getSprite().loadImage();
+			 this.door.getSprite().loadImage();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
+		/*try {
+			this.spell.getSprite().loadImage();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
 		boardFrame.addPawn(this.key);
 		
 		boardFrame.addPawn(this.door);
+		
+		//boardFrame.addPawn(this.spell);
         
 		boardFrame.addPawn(this.getHero());
 

@@ -2,7 +2,6 @@ package model;
 
 import java.awt.Point;
 
-
 import showboard.IPawn;
 
 /**
@@ -12,7 +11,7 @@ import showboard.IPawn;
  * @version 1.0
  */
 
-public interface IMobile extends IPawn {
+public interface IMobile extends IElement, IPawn {
 
     /**
      * Gets the x.
@@ -28,13 +27,6 @@ public interface IMobile extends IPawn {
      */
 	
 	int getY();
-	
-    /**
-     * Gets the speed.
-     *
-     * @return the speed
-     */
-	int getSpeed();
 	
 	/**
 	 * Gets the position of mobile element

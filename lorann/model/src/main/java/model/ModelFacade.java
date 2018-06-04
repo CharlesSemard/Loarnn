@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import Element.mobile.Door;
 import Element.mobile.Hero;
 import Element.mobile.Key;
-import Element.mobile.Purse;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -17,10 +16,10 @@ import Element.mobile.Purse;
 public final class ModelFacade implements IModel {
 	
 	private IMap level;
-	private IMobile Hero;
+	private Hero Hero;
 	private IMobile[] purses;
 	private IMobile[] monsters;
-	private IMobile energyBall;
+	private IMobile key;
 	private IMobile door;
 	/** The spell */
 	private IMobile spell;
@@ -39,16 +38,17 @@ public final class ModelFacade implements IModel {
         monsters = new IMobile[this.getLevel().getMonsters().length];
         
         for(int i = 0; i < purses.length; i++) {
-        	purses[i] = new Purse((int)this.getLevel().getPurses()[i].getX(), (int)this.getLevel().getPurses()[i].getY(), this.level);
+        	purses[i] = this.getLevel().getPurses()[i];
         	((Hero)this.getHero()).addPurse(purses[i]);
         }
         
         for(int i = 0; i < monsters.length; i++) {
-        	
+        	monsters[i] = this.getLevel().getMonsters()[i];
+	        ((Element.mobile.Hero) this.getHero()).addMonster(monsters[i]);
         }
         
-        energyBall = new Key((int)this.getLevel().getEnergyBall().getX(), (int)this.getLevel().getEnergyBall().getY(), this.level);
-        ((Hero)this.getHero()).addEnergyBall(energyBall);
+        key = new Key((int)this.getLevel().getEnergyBall().getX(), (int)this.getLevel().getEnergyBall().getY(), this.level);
+        ((Hero)this.getHero()).addEnergyBall(key);
         
         door = new Door((int)this.getLevel().getDoor().getX(), (int)this.getLevel().getDoor().getY(), this.level);
         ((Hero)this.getHero()).addDoor(door);
@@ -73,7 +73,7 @@ public final class ModelFacade implements IModel {
 	 * Set the hero 
 	 * @param character
 	 */
-	private void setCharacter(IMobile character) {
+	private void setCharacter(Hero character) {
 		this.Hero = character;
 	}
 	/**
@@ -109,7 +109,7 @@ public final class ModelFacade implements IModel {
 	 * @return energyBall
 	 */
 	public IMobile getEnergyBall() {
-		return this.energyBall;
+		return this.key;
 	}
 	/**
 	 * Get the door on the IMobile interface

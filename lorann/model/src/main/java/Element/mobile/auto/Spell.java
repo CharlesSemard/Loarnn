@@ -1,8 +1,9 @@
-package Element.mobile;
+package Element.mobile.auto;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Element.mobile.Mobile;
 import model.IMap;
 import model.IMobile;
 import model.Permeability;

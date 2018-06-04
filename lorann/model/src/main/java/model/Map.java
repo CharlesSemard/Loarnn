@@ -1,10 +1,16 @@
 package model;
 
 import java.awt.Point;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import Element.mobile.Purse;
+import Element.mobile.auto.Monster_1;
+import Element.mobile.auto.Monster_2;
+import Element.mobile.auto.Monster_3;
+import Element.mobile.auto.Monster_4;
 import Element.motionless.MotionlessElementsFactory;
 import model.dao.ExampleDAO;
 
@@ -20,9 +26,9 @@ public class Map extends Observable implements IMap {
 	/** position of the hero*/
 	private Point characterPosition;
 	/** position of the purses*/
-	private ArrayList<Point> pursesPositions;
+	private ArrayList<IMobile> pursesPositions;
 	/** position of the monsters*/
-	private ArrayList<Point> monstersPositions;
+	private ArrayList<IMobile> monsters;
 	/** position of the energyBall*/
 	private Point energyBall;
 	/** position of the door*/
@@ -36,11 +42,11 @@ public class Map extends Observable implements IMap {
 	public Map (int level) {
 		super();
 		pursesPositions = new ArrayList<>();
-		monstersPositions = new ArrayList<>();
+		monsters = new ArrayList<>();
 		
 		try {
 			this.loadLevel(level);
-		} catch (SQLException e) {
+		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -54,14 +60,13 @@ public class Map extends Observable implements IMap {
 	}
 	
 	 /**
-     * Load the mobile Elements on the map 
-     * NOT FINISHED YET...
      *
      * @param level
      *            the level number
+	 * @throws IOException 
      * @throws SQLExceptions
      */
-	private void loadLevel(int level) throws SQLException {
+	private void loadLevel(int level) throws SQLException, IOException {
 		String levelText = ExampleDAO.ShowLevelByID(level);
 		this.onTheMap = new IElement[this.getWidth()][this.getHeight()];
 		String[] levelArray = levelText.split("\n");
@@ -73,19 +78,33 @@ public class Map extends Observable implements IMap {
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
 						break;
 					case 'i':
-						this.pursesPositions.add(new Point(x, y));
+						this.pursesPositions.add(new Purse(x, y, this));
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
 						break;
 					case 'u':
 						this.energyBall = new Point(x, y);
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
+						break;
 					case 'H':
 						this.door = new Point(x, y);
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
-					case 'x' :
-						Point temp = new Point(x, y);
-						this.monstersPositions.add(temp);
+						break;
+					case 'w' :
+						this.monsters.add(new Monster_1(this, x, y));
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
+						break;
+					case 'x' :
+						this.monsters.add(new Monster_2(this, x, y));
+						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
+						break;
+					case 'y' :
+						this.monsters.add(new Monster_3(this, x, y));
+						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
+						break;
+					case 'z' :
+						this.monsters.add(new Monster_4(this, x, y));
+						this.setOnTheMapXY(x, y, MotionlessElementsFactory.creatFloor());
+						break;
 					default: 
 						this.setOnTheMapXY(x, y, MotionlessElementsFactory.getSymbol(levelArray[y].toCharArray()[x]));
 						break;
@@ -164,18 +183,21 @@ public class Map extends Observable implements IMap {
 		this.characterPosition = position;
 	}
 
-	public Point[] getPurses() {
-		Point[] result = new Point[this.pursesPositions.size()];
+	public IMobile[] getPurses() {
+		IMobile[] result = new IMobile[this.pursesPositions.size()];
 		for(int i = 0; i < result.length; i++) {
-			result[i] = pursesPositions.get(i);
+			result[i] = (IMobile) pursesPositions.get(i);
 		}
 		return result;
 	}
 
-	public Point[] getMonsters() {
-		Point[] result = new Point[this.monstersPositions.size()];
+	/**
+	 * Gets the list of all monsters
+	 */
+	public IMobile[] getMonsters() {
+		IMobile[] result = new IMobile[this.monsters.size()];
 		for(int i = 0; i < result.length; i++) {
-			result[i] = monstersPositions.get(i);
+			result[i] = monsters.get(i);
 		}
 		return result;
 	}

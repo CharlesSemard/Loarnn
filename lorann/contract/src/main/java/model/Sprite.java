@@ -101,8 +101,9 @@ public class Sprite {
      */
     public final void loadImage() throws IOException {
     	String path = System.getProperty("user.dir") + "\\images\\" + this.getImageName() + ".png";
-
+    	//System.out.println(path);
     	try {
+    		
     		this.setImage(ImageIO.read(new File(path)));
     	}
     	catch(Exception e){

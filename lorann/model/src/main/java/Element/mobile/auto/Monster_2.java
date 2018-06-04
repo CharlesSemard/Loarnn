@@ -1,4 +1,4 @@
-package Element.mobile;
+package Element.mobile.auto;
 
 import model.IMap;
 import model.Sprite;
@@ -18,12 +18,6 @@ public class Monster_2 extends Monster {
 		// TODO Auto-generated method stub
 	}
 
-	@Override
-	public int collect() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	/** AI Horizontal */
 	@Override
 	public void move() {
@@ -39,5 +33,11 @@ public class Monster_2 extends Monster {
 				goingRight = true;
 			}
 		}
+	}
+
+	@Override
+	public int collect() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
