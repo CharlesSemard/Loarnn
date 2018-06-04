@@ -40,6 +40,7 @@ public class BoardFrame extends JFrame implements IBoard {
     /** The board panel. */
     private final BoardPanel  boardPanel;
 
+
     /**
      * Instantiates a new board frame.
      *
@@ -276,6 +277,15 @@ public class BoardFrame extends JFrame implements IBoard {
         bouton.addActionListener(e -> pan1.setVisible(false));
         bouton.addActionListener(e -> pan2.setVisible(true));
         bouton.addActionListener(e -> Fenetre.setContentPane(pan2));
+        
+
+        
+        
+    	
+
+    	
+    	
+    	
 
         //pan2.setVisible(true);
         
@@ -291,8 +301,6 @@ public class BoardFrame extends JFrame implements IBoard {
         panLevel4.add(texteLevel4);
         
         panLevel5.add(texteLevel5);
-        
-      //  final IModel model = new ModelFacade(2);
 
        
         boutonExit.addActionListener(e -> System.exit(0));
@@ -300,11 +308,12 @@ public class BoardFrame extends JFrame implements IBoard {
         boutonLevel1.addActionListener(e -> pan2.setVisible(false));
         boutonLevel1.addActionListener(e -> panLevel1.setVisible(true));
         boutonLevel1.addActionListener(e -> Fenetre.setContentPane(panLevel1));
+
+        
         
         boutonLevel2.addActionListener(e -> pan2.setVisible(false));
         boutonLevel2.addActionListener(e -> panLevel2.setVisible(true));
         boutonLevel2.addActionListener(e -> Fenetre.setContentPane(panLevel2));
-       // boutonLevel2.addActionListener(e -> new ModelFacade(2));
         
         boutonLevel3.addActionListener(e -> pan2.setVisible(false));
         boutonLevel3.addActionListener(e -> panLevel3.setVisible(true));
@@ -320,7 +329,7 @@ public class BoardFrame extends JFrame implements IBoard {
         
         
         
-        }
+        }*/
     
     
 }
