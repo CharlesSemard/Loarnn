@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Menu;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -8,6 +9,7 @@ import model.IModel;
 import model.ModelFacade;
 import showboard.BoardFrame;
 import view.ViewFacade;
+import main.Fenetre;
 
 /**
  * <h1>The Class Main.</h1>
@@ -31,16 +33,16 @@ public abstract class Main {
      */
     public static void main(final String[] args) throws IOException, SQLException, InterruptedException {
     	//Vraie fonction à garder dans le main
-    	BoardFrame.Fenetre();
+    	Fenetre.Menu();
+    	
     	
     	
     	
     	//Bloc de Fonctions de test du jeu à placer dans les boutons des fenêtres...
-    	
-    	final IModel model = new ModelFacade(5);
+    	System.out.print("test");
+    	final IModel model = new ModelFacade(Fenetre.level);
     	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor());
         final ControllerFacade controller = new ControllerFacade(view, model);
-        
         view.setOrderPerformer(controller.getOrderPerformer());
         controller.start();
         

@@ -1,7 +1,15 @@
 package model;
 
 import java.awt.Point;
+
 import java.util.Observable;
+
+/**
+ * <h1>The Interface IMap.</h1>
+ * 
+ * @author Alexandre Vivier Baudry
+ * @version 1.0
+ */
 
 public interface IMap {
 	
@@ -42,18 +50,52 @@ public interface IMap {
      */
 	
 	Observable getObservable();
+	
+	/**
+	 * Gets the hero position 
+	 * @return the hero position
+	 */
 
 	Point getCharacterPosition();
 	
+	/**
+	 * Gets the purse 
+	 * @return the purse position
+	 */
+	
 	Point[] getPurses();
+	
+	/**
+	 * Gets the monster position 
+	 * @return the monster position
+	 */
 	
 	Point[] getMonsters();
 	
+	/**
+	 * Gets the EnergyBall position 
+	 * @return the EnergyBall position
+	 */
 	Point getEnergyBall();
 	
+	/**
+	 * Gets the door position 
+	 * @return the door position
+	 */
+	
 	Point getDoor();
+	
+	/**
+	 * Gets the spell position 
+	 * @return the spell position
+	 */
 
 	boolean setSpellOnTheMapXY(int x, int y, IElement spell);
+	
+	/**
+	 * Gets the refresh of the frame 
+	 * @return the refresh
+	 */
 	
 	void setElementHasChanged();
 }

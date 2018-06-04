@@ -16,15 +16,29 @@ public class Key extends Mobile {
 		collected.loadImage();
 	}
 
+    /**
+     * Do nothing.
+     */
+	
 	@Override
 	public void doNothing() {}
 	
+    /**
+     * when the hero passes on a key
+     * this key is destroyed and the door open 
+     * @return the open door  
+     */	
 	public int collect() {
 		if(this.isAlive()) {
 			this.die();
 		}
 		return 0;
 	}
+	
+    /**
+     * when the hero passes on a key
+     * this key is destroyed   
+     */	
 	
 	@Override
 	public void die() {

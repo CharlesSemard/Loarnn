@@ -62,6 +62,12 @@ public abstract class Element implements IElement {
 		this.sprite = sprite;
 	}
 	
+	/**
+     * Gets the image.
+     *
+     * @return the image
+     */
+	
 	@Override
 	public Image getImage() {
 		return this.getSprite().getImage();
