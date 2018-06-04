@@ -1,15 +1,12 @@
 package main;
 
-import java.awt.Menu;
 import java.io.IOException;
 import java.sql.SQLException;
 
 import controller.ControllerFacade;
 import model.IModel;
 import model.ModelFacade;
-import showboard.BoardFrame;
 import view.ViewFacade;
-import main.Fenetre;
 
 /**
  * <h1>The Class Main.</h1>
