@@ -11,7 +11,7 @@ import model.Sprite;
 
 public class Hero extends Mobile{
 	
-	/** The SPRITE. */
+	/** The SPRITES. */
 	private static Sprite lorann_b = new Sprite(' ', "lorann_b");
 	private static Sprite lorann_bl = new Sprite(' ' ,"lorann_bl");
 	private static Sprite lorann_br = new Sprite(' ' ,"lorann_br");
@@ -34,8 +34,6 @@ public class Hero extends Mobile{
 	private int score = 0;
 	private boolean won = false;
 
-	/** Is the Hero allowed to launch a spell ? */
-	Boolean hasSpell = true;
 	/** Is the gate open ? */
 	Boolean hasKey = false;
 	
@@ -88,9 +86,9 @@ public class Hero extends Mobile{
 	@Override
 	public void doNothing() {
 		
-		/*if(isHit(this.getX(), this.getY())) {this.die();}
+		if(isHit(this.getX(), this.getY())) {this.die();}
 		else if(this.isOnSpell(this.getX(), this.getY())) 
-			this.spell.collect();*/
+			this.spell.collect();
 		
 		int index = 0;
 		for(int i = 0; i < sprites.length; i++) {
@@ -111,10 +109,11 @@ public class Hero extends Mobile{
      */	
 	
 	public void specialCase(int x, int y) {
-		if(this.isOnKey(x, this.getY())) {}
+		if(isHit(this.getX(), this.getY())) {this.die();}
+		else if(this.isOnKey(x, this.getY())) {}
 		else if(this.isOnDoor(x, this.getY())) {}
-		else if(this.isHit(x, this.getY())) {}
 		else if(this.isOnPurse(x, this.getY())) {}
+		else if(this.isOnSpell(x, this.getY())) {this.spell.collect();}
 	}
 	
     /**
@@ -162,6 +161,66 @@ public class Hero extends Mobile{
 		return true;
 	}
 	
+	/**
+     * Gets the moveLeft.
+     *
+     * @return true or false for moveLeft
+     */	
+	
+	@Override
+	public boolean moveUpLeft() {
+		super.moveUpLeft();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_ul);
+		this.setHasMoved();
+		return true;
+	}
+	
+	/**
+     * Gets the moveDown.
+     *
+     * @return true or false for moveRight
+     */	
+	
+	@Override
+	public boolean moveDown() {
+		super.moveDown();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_br);
+		this.setHasMoved();
+		return true;
+	}
+	
+    /**
+     * Gets the moveRight.
+     *
+     * @return true or false for moveRight
+     */	
+	
+	@Override
+	public boolean moveDownRight() {
+		super.moveDownRight();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_br);
+		this.setHasMoved();
+		return true;
+	}
+	
+    /**
+     * Gets the moveUp.
+     *
+     * @return true or false for moveUp
+     */	
+	
+	@Override
+	public boolean moveUpRight() {
+		super.moveUpRight();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_ur);
+		this.setHasMoved();
+		return true;
+	}
+	
     /**
      * Gets the moveDown.
      *
@@ -169,16 +228,16 @@ public class Hero extends Mobile{
      */	
 	
 	@Override
-	public boolean moveDown() {
-		super.moveDown();
+	public boolean moveDownLeft() {
+		super.moveDownLeft();
 		specialCase(this.getX(), this.getY());
-		this.setSprite(lorann_b);
+		this.setSprite(lorann_bl);
 		this.setHasMoved();
 		return true;
 	}
 	
     /**
-     * when the hero goes on a purse
+     * when the hero passes on a purse
      *
      * @return score  
      */	
@@ -196,7 +255,7 @@ public class Hero extends Mobile{
 	}
 	
     /**
-     * when the hero goes on a key
+     * when the hero passes on a key
      *
      * @return the open door  
      */	
@@ -205,7 +264,6 @@ public class Hero extends Mobile{
 			key.collect();
 			hasKey = true;
 			gate.collect();
-			System.out.println("Key found");
 			return true;
 		}
 		
@@ -213,7 +271,7 @@ public class Hero extends Mobile{
 	}
 	
     /**
-     * when the hero goes on a door
+     * when the hero passes on a door
      *
      * @return win or die  
      */	
@@ -229,20 +287,31 @@ public class Hero extends Mobile{
 	}
 	
 	/**
-	 * Checks if the player is on the spell path
+	 * Checks if the player is on the spell
 	 * @param newX
 	 * 		X coordinate
 	 * @param newY
 	 * 		Y coordinate
 	 */
 	public boolean isOnSpell(int newX, int newY) {
+		if (spell != null)
 		if(spell.getX() == newX && spell.getY() == newY)
 			return true;
 		return false;
 	}
 	
+	@Override
+	public boolean isHit(int newX, int newY) {
+		for(IMobile monster : this.monsters) {
+			if(monster.getX() == newX && monster.getY() == newY && monster.isAlive()) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	/**
-	 * add purse in the arrayList in Hero constructor
+	 * add purse on the arrayList in Hero constructor
 	 * @param purse
 	 */
 	
@@ -251,7 +320,7 @@ public class Hero extends Mobile{
 	}
 	
 	/**
-	 * add energyBall in the arrayList in Hero constructor
+	 * add energyBall on the arrayList in Hero constructor
 	 * @param energyBall
 	 */
 	
@@ -260,14 +329,14 @@ public class Hero extends Mobile{
 	}
 	
 	/**
-	 * add monster in the arrayList in Hero constructor
+	 * add monster on the arrayList in Hero constructor
 	 * @param monster
 	 */
 	public void addMonster(IMobile monster) {
 		this.monsters.add(monster);
 	}
 	/**
- * add door in     the arrayList in Hero constructor
+	 * add door on the arrayList in Hero constructor
 	 * @param door
 	 */
 	public void addDoor(IMobile door) {
@@ -283,9 +352,22 @@ public class Hero extends Mobile{
 	 * Makes the spell spawn at a specific location
 	 */
 	public void shoot() {
+		if(spell != null)
 		if(!spell.isAlive()) {
 			int direction = lastY != 0 ? (lastY == -1 ? 2 : 1) : (lastX == -1 ? 3 : 4);
 			((Spell)this.spell).spawn(this.getX() - lastX, this.getY() - lastY, direction);
+		}
+	}
+	
+	/**
+	 * Adds the spell to the player
+	 * @param spell
+	 * 		Spell to add
+	 */
+	public void addSpell(IMobile spell) {
+		this.spell = spell;
+		for (IMobile monster : monsters) {
+			((Spell)this.spell).addMonster(monster);
 		}
 	}
 	

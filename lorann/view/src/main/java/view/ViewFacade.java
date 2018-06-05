@@ -175,10 +175,6 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 		return this.level;
 	}
 
-	/**
-	 * get the Hero
-	 * @return
-	 */
 	public IMobile getHero() {
 		return this.Hero;
 	}

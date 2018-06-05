@@ -11,13 +11,6 @@ public class Key extends Mobile {
 	private static Sprite ballSprite = new Sprite('u', "crystal_ball");
 	private static Sprite collected = new Sprite('u', "floor");
 	
-	/**
-	 * Create the key
-	 * @param x
-	 * @param y
-	 * @param level
-	 * @throws IOException
-	 */
 	public Key(int x, int y, IMap level) throws IOException {
 		super(ballSprite, Permeability.COLLECTIBLE, level, x, y);
 		collected.loadImage();
