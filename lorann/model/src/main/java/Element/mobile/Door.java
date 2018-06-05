@@ -41,7 +41,7 @@ public class Door extends Mobile {
 	}
 	
     /**
-     * Causes the door to die and replaces it
+     * Make the door disappear and replace it by an opened door
      *
      * @return the open door  
      */	

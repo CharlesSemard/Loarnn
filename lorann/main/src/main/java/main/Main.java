@@ -30,26 +30,24 @@ public abstract class Main {
      * @throws InterruptedException 
      */
     public static void main(final String[] args) throws IOException, SQLException, InterruptedException {
-    	//Vraie fonction ‡ garder dans le main
+    	//Vraie fonction ÔøΩ garder dans le main
     	Fenetre.Menu();
     	
-<<<<<<< HEAD
+
     	
     	Thread.sleep(3000);
     	
     	
-    	final IModel model = new ModelFacade(Fenetre.level);
-    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor());
-        final ControllerFacade controller = new ControllerFacade(view, model);
-=======
+   
+
     	//Thread.sleep(8000);
     	
-    	//Bloc de Fonctions de test du jeu ‡ placer dans les boutons des fenÍtres...
+    	//Bloc de Fonctions de test du jeu ÔøΩ placer dans les boutons des fenÔøΩtres...
     	
-    	final IModel model = new ModelFacade(2);
+    	final IModel model = new ModelFacade(Fenetre.level);
     	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor(), null);
         final IController controller = new ControllerFacade(view, model);
->>>>>>> Yolojeveuxr√©cup√©rerlecode
+
         view.setOrderPerformer(controller.getOrderPerformer());
         controller.start();        
         //Fin du Bloc de Fonctions de Test
