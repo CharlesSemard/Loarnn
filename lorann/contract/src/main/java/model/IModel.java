@@ -56,4 +56,6 @@ public interface IModel {
 	 */
 
 	boolean hasCharacterWon();
+
+	IMobile getSpell();
 }

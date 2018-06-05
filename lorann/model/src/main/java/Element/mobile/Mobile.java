@@ -22,11 +22,11 @@ public abstract class Mobile extends Element implements IMobile {
 	/**
 	 * Record of the last move made
 	 */
-	private int lastX = 0;
+	protected int lastX = 0;
 	/**
 	 * Record of the last move made
 	 */
-	private int lastY = 0;
+	protected int lastY = 0;
 	
 	/** Refresh the map */	
 	public void setHasMoved() {
@@ -104,6 +104,46 @@ public abstract class Mobile extends Element implements IMobile {
      * @param level
      * 			  the level on the map 
      */
+	
+	@Override
+	public boolean moveUpRight() {
+		if(this.setY(this.getY() - 1)) {
+			this.lastY = -1;
+			this.lastX = 0;
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean moveDownLeft() {
+		if(this.setY(this.getY() + 1)) {
+			this.lastY = 1;
+			this.lastX = 0;
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean moveUpLeft() {
+		if(this.setX(this.getX() - 1)) {
+			this.lastX = -1;
+			this.lastY = 0;
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean moveDownRight() {
+		if(this.setX(this.getX() + 1)) {
+			this.lastX = 1;
+			this.lastY = 0;
+			return true;
+		}
+		return false;
+	}
 	
 	public Mobile(Sprite sprite, Permeability permeability, IMap level) {
 		this(sprite, permeability, level, 0, 0);
@@ -243,7 +283,6 @@ public abstract class Mobile extends Element implements IMobile {
 	
 	protected void die() {
 		this.alive = false;
-		this.setHasMoved();
 	}
 	/**
 	 * the position on the map
@@ -254,11 +293,29 @@ public abstract class Mobile extends Element implements IMobile {
 		return this.position;
 	}
 	
-	@Override
-	public void shoot() {
-		int x = this.getX() - lastX;
-		int y = this.getY() - lastY;
-		this.level.setSpellOnTheMapXY(x, y, new Spell(this.getLevel(), x, y));
+	/**
+	 * Spawn a Spell turning parameter alive (back) to true
+	 */
+	public void spawnSpell() {
+		this.alive = true;
+	}
+
+	public boolean setPosition(int x, int y) {
+		if(this.getLevel().getOnTheMapXY(x, y).getPermeability() != Permeability.BLOCKING) {
+			this.getPosition().x = x;
+			this.getPosition().y = y;
+			return true;
+		}
+		return false;
 	}
 	
+	/**
+	 * Spawns a spell (@see MyCharacter class)
+	 */
+	public void shoot() {}
+	
+	/**
+	 * Defines a generic method for the movement of the mobile element (@see monsters and spell)
+	 */
+	public void move() {}
 }

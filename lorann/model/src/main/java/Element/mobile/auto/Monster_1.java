@@ -1,11 +1,12 @@
-package Element.mobile;
+package Element.mobile.auto;
 
 import model.IMap;
+import model.IMonster;
 import model.Sprite;
 
-public abstract class Monster_1 extends Monster {
+public class Monster_1 extends Monster implements IMonster {
 	
-	private static Sprite sprite = new Sprite('x', "monster_1");
+	private static Sprite sprite = new Sprite('z', "monster_1");
 	
 	public boolean goingUp = true;
 
@@ -15,28 +16,28 @@ public abstract class Monster_1 extends Monster {
 
 	@Override
 	public void doNothing() {
-		// TODO Auto-generated method stub
+	}
+
+	/** AI Vertical */
+	@Override
+	public void move() {
+		if(this.goingUp) {
+			if(!this.moveUp()) {
+				this.moveDown();
+				goingUp = false;
+			}
+		}
+		else {
+			if(!this.moveDown()) {
+				this.moveUp();
+				goingUp = true;
+			}
+		}
 	}
 
 	@Override
 	public int collect() {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	@Override
-	public void move() {
-		if(this.goingUp) {
-			if(this.moveUp()) {
-				this.moveDown();
-				goingUp = false;
-			}
-		}
-		else {
-			if(this.moveDown()) {
-				this.moveUp();
-				goingUp = true;
-			}
-		}
 	}
 }

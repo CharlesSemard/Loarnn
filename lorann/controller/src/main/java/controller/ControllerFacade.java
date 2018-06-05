@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 import model.IMobile;
 import model.IModel;
-import model.IMonster;
 import view.IView;
 
 /**
@@ -53,9 +52,13 @@ public class ControllerFacade implements IController, IOrderPerformer {
         while(this.getModel().getHero().isAlive()) {
         	Thread.sleep(speed);
         	
-        	/*for(IMobile monster : this.getModel().getMonsters()) {
-        		((IMonster)monster).move(); 
-        	}*/
+        	/*if(this.getModel().getSpell().isAlive())
+        		this.getModel().getSpell().move();*/
+        	
+        	for(IMobile monster : this.getModel().getMonsters()) {
+        		if(monster.isAlive())
+        			monster.move();
+        	}
         	
         	if(this.getStackOrder() != null) {
         		switch(this.getStackOrder().getKeyCode()) {
@@ -85,10 +88,13 @@ public class ControllerFacade implements IController, IOrderPerformer {
         	}
         	
         }
-        if(this.getModel().hasCharacterWon())
+        if(this.getModel().hasCharacterWon()) {
         	this.getView().displayMessage("You escaped !");
-        else
+        	System.exit(1); }
+        else {
         	this.getView().displayMessage("You're dead..");
+        	System.exit(1);
+        }
     }
 
     /**

@@ -1,6 +1,6 @@
 package model;
 
-public interface IMonster extends IMobile {
+public interface IMonster extends IMobile{
 
 	/**
 	 * Gets the movement 

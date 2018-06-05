@@ -17,7 +17,7 @@ import showboard.BoardFrame;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Pierre-Loup MARTIGNE pierre-loup.martigne@viacesi.fr
  * @version 1.0
  */
 public class ViewFacade implements IView, KeyListener, Runnable {
@@ -40,17 +40,20 @@ public class ViewFacade implements IView, KeyListener, Runnable {
     private IMobile[] purses;
     
     /** The monsters. */
-    //private IMobile[] monsters;
+    private IMobile[] monsters;
     
     private IMobile key;
     
     private IMobile door;
+    
+    /** The spell. */
+    //private IMobile spell;
 
 	/**
      * Instantiates a new view facade.
 	 * @throws IOException 
      */
-    public ViewFacade(IMap level, IMobile Hero, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door) throws IOException {
+    public ViewFacade(IMap level, IMobile Hero, IMobile[] purses, IMobile[] monsters, IMobile energyBall, IMobile door, IMobile spell) throws IOException {
         this.setLevel(level);
         this.setHero(Hero);
         ((IElement) this.getHero()).getSprite().loadImage();
@@ -60,6 +63,8 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         this.purses = purses;
         this.key = energyBall;
         this.door = door;
+        this.monsters = monsters;
+        //this.spell = spell;
     }
 
     /*
@@ -99,7 +104,6 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         boardFrame.setHeightLooped(false);
         boardFrame.addKeyListener(this);
         boardFrame.setFocusable(true);
-        //boardFrame.setFocusTraversalKeysEnabled(false);
 		
 		for (int x = 0; x < this.getLevel().getWidth(); x++) {
             for (int y = 0; y < this.getLevel().getHeight(); y++) {
@@ -117,31 +121,44 @@ public class ViewFacade implements IView, KeyListener, Runnable {
 		}
 		
 		try {
-			((IElement) this.key).getSprite().loadImage();
+			this.door.getSprite().loadImage();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		/*for(IMobile monster : monsters) {
+		try {
+			 this.key.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		for(IMobile monster : monsters) {
 			try {
-				((IElement) monster).getSprite().loadImage();
+				monster.getSprite().loadImage();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			boardFrame.addPawn(monster);
-		}*/
+		}
 		
 		try {
-			((IElement) this.door).getSprite().loadImage();
+			 this.door.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		/*try {
+			this.spell.getSprite().loadImage();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 		boardFrame.addPawn(this.key);
 		
 		boardFrame.addPawn(this.door);
+		
+		//boardFrame.addPawn(this.spell);
         
 		boardFrame.addPawn(this.getHero());
 

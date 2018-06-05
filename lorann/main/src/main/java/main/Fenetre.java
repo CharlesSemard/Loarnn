@@ -9,10 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import model.ModelFacade;
-
 
 public class Fenetre extends JFrame {
+
+	private static final long serialVersionUID = -8671443821921933032L;
 	
 				/** Functions initialization */
 	

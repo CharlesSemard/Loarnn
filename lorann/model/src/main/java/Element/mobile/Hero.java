@@ -3,6 +3,7 @@ package Element.mobile;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Element.mobile.auto.Spell;
 import model.IMap;
 import model.IMobile;
 import model.Permeability;
@@ -27,6 +28,8 @@ public class Hero extends Mobile{
 	private ArrayList<IMobile> monsters;
 	private IMobile key;
 	private IMobile gate;
+	/** The spell */
+	private IMobile spell;
 	
 	private int score = 0;
 	private boolean won = false;
@@ -84,6 +87,11 @@ public class Hero extends Mobile{
 	
 	@Override
 	public void doNothing() {
+		
+		/*if(isHit(this.getX(), this.getY())) {this.die();}
+		else if(this.isOnSpell(this.getX(), this.getY())) 
+			this.spell.collect();*/
+		
 		int index = 0;
 		for(int i = 0; i < sprites.length; i++) {
 			if(sprites[i] == this.getSprite()) {
@@ -217,7 +225,19 @@ public class Hero extends Mobile{
 			}
 			return true;
 		}
-		
+		return false;
+	}
+	
+	/**
+	 * Checks if the player is on the spell
+	 * @param newX
+	 * 		X coordinate
+	 * @param newY
+	 * 		Y coordinate
+	 */
+	public boolean isOnSpell(int newX, int newY) {
+		if(spell.getX() == newX && spell.getY() == newY)
+			return true;
 		return false;
 	}
 	
@@ -257,6 +277,16 @@ public class Hero extends Mobile{
 	@Override
 	public int collect() {
 		return 0;
+	}
+	
+	/**
+	 * Makes the spell spawn at a specific location
+	 */
+	public void shoot() {
+		if(!spell.isAlive()) {
+			int direction = lastY != 0 ? (lastY == -1 ? 2 : 1) : (lastX == -1 ? 3 : 4);
+			((Spell)this.spell).spawn(this.getX() - lastX, this.getY() - lastY, direction);
+		}
 	}
 	
 	/**
