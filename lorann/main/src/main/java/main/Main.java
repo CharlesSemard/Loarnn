@@ -36,9 +36,8 @@ public abstract class Main {
     	Thread.sleep(5000);
     	
     	final IModel model = new ModelFacade(Fenetre.level);
-    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor(), null);
+    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor(), model.getSpell());
         final IController controller = new ControllerFacade(view, model);
->>>>>>> Yolojeveuxrécupérerlecode
         view.setOrderPerformer(controller.getOrderPerformer());
         controller.start();   
     }   
