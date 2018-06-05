@@ -25,7 +25,7 @@ public class HeroTest {
 	@Before
 	public void setUp() throws Exception {
 		this.model = new ModelFacade(1);
-		this.hero = new Hero(7, 7, model.getLevel());
+		this.hero = new Hero(15, 7, model.getLevel());
 		this.hero.addEnergyBall(this.model.getEnergyBall());
 		this.hero.addDoor(this.model.getDoor());
 	}
@@ -39,7 +39,7 @@ public class HeroTest {
 	@Test
 	public void testMoveLeft() {
 		this.hero.moveLeft();
-		assertEquals(6, this.hero.getX());
+		assertEquals(14, this.hero.getX());
 	}
 	
 	@Test
@@ -51,7 +51,7 @@ public class HeroTest {
 	@Test
 	public void testMoveRight() {
 		this.hero.moveRight();
-		assertEquals(8, this.hero.getX());
+		assertEquals(16, this.hero.getX());
 	}
 
 	/*@Test
