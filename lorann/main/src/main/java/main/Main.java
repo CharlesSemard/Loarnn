@@ -17,9 +17,6 @@ import view.ViewFacade;
  */
 public abstract class Main {
 	
-	/**The map of the level (text version) */
-	//public static String mapLevel;
-	
     /**
      * The main method.
      *
@@ -30,7 +27,6 @@ public abstract class Main {
      * @throws InterruptedException 
      */
     public static void main(final String[] args) throws IOException, SQLException, InterruptedException {
-    	//Vraie fonction � garder dans le main
     	Fenetre.Menu();
     	
     	Thread.sleep(5000);

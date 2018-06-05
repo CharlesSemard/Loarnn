@@ -13,22 +13,22 @@ import model.Sprite;
 public class Spell extends Mobile{
 	
 	/** First sprite of the spell */
-	private Sprite first_sprite = new Sprite(' ', "fireball_1");
+	private static Sprite first_sprite = new Sprite(' ', "fireball_1");
 	
 	/** Second sprite of the spell */
-	private  Sprite second_sprite = new Sprite(' ', "fireball_2");
+	private static Sprite second_sprite = new Sprite(' ', "fireball_2");
 	
 	/** Third sprite of the spell */
-	private  Sprite third_sprite = new Sprite(' ', "fireball_3");
+	private static Sprite third_sprite = new Sprite(' ', "fireball_3");
 	
 	/** Fourth sprite of the spell */
-	private  Sprite fourth_sprite = new Sprite(' ', "fireball_4");
+	private static Sprite fourth_sprite = new Sprite(' ', "fireball_4");
 	
 	/** Fifth sprite of the spell */
-	private  Sprite fifth_sprite = new Sprite(' ', "fireball_5");
+	private static Sprite fifth_sprite = new Sprite(' ', "fireball_5");
 	
 	/** Dead sprite of the spell */
-	private Sprite dead_sprite;
+	private static Sprite dead_sprite;
 	
 	/** List of all the sprites of the spell */
 	private Sprite[] sprites;
@@ -62,12 +62,12 @@ public class Spell extends Mobile{
 	 */
 	public Spell(IMap level, int x, int y, Sprite deadSprite) throws IOException {
 		super(deadSprite, Permeability.SPELL, level, x, y);
-		this.dead_sprite = deadSprite;
-		this.first_sprite.loadImage();
-		this.second_sprite.loadImage();
-		this.third_sprite.loadImage();
-		this.fourth_sprite.loadImage();
-		this.fifth_sprite.loadImage();
+		Spell.dead_sprite = deadSprite;
+		Spell.first_sprite.loadImage();
+		Spell.second_sprite.loadImage();
+		Spell.third_sprite.loadImage();
+		Spell.fourth_sprite.loadImage();
+		Spell.fifth_sprite.loadImage();
 		
 		this.sprites = new Sprite[5];
 		

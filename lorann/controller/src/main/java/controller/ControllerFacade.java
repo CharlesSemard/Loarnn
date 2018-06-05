@@ -51,9 +51,9 @@ public class ControllerFacade implements IController, IOrderPerformer {
     public void start() throws SQLException, InterruptedException, IOException {
         while(this.getModel().getHero().isAlive()) {
         	Thread.sleep(speed);
-        	
-        	/*if(this.getModel().getSpell().isAlive())
-        		this.getModel().getSpell().move();*/
+        	if (this.getModel().getSpell() != null)
+        	if(this.getModel().getSpell().isAlive())
+        		this.getModel().getSpell().move();
         	
         	for(IMobile monster : this.getModel().getMonsters()) {
         		if(monster.isAlive())
