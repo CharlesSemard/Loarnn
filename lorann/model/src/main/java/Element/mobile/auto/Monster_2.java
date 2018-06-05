@@ -4,19 +4,11 @@ import model.IMap;
 import model.Sprite;
 
 public class Monster_2 extends Monster {
-	/**
-	 * Create a sprite for the monster
-	 */
+	
 	private static Sprite sprite = new Sprite('w', "monster_2");
 	
 	public boolean goingRight = true;
 
-	/**
-	 *  Instantiate a new Monster
-	 * @param level
-	 * @param x
-	 * @param y
-	 */
 	public Monster_2(IMap level, int x, int y) {
 		super(sprite, level, x, y);
 	}

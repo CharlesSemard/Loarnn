@@ -7,24 +7,12 @@ import model.Sprite;
 
 public class Monster_4 extends Monster {
 	
-	/**
-	 *  Sprite for the monster
-	 */
 	private static Sprite sprite = new Sprite('z', "monster_4");
 
-	/**
-	 *  Instantiate a monster
-	 * @param level
-	 * @param x
-	 * @param y
-	 */
 	public Monster_4(IMap level, int x, int y) {
 		super(sprite, level, x, y);
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	public void doNothing() {
 		// TODO Auto-generated method stub
@@ -60,7 +48,6 @@ public class Monster_4 extends Monster {
 		}	
 	}
 
-	
 	@Override
 	public int collect() {
 		// TODO Auto-generated method stub

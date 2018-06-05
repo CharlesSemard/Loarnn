@@ -85,7 +85,7 @@ public class Fenetre extends JFrame {
 	    	JLabel texteLevel1 = new JLabel("Level 1");
 	    	JLabel texteLevel2 = new JLabel("Level 2");
 	    	JLabel texteLevel3 = new JLabel("Level 3");
-	    	JLabel texteLevel4 = new JLabel("Level 4"); 
+	    	JLabel texteLevel4 = new JLabel("Level 4");
 	    	JLabel texteLevel5 = new JLabel("Level 5");
 	    	
 	    	String url2 = "LorannLogo.jpg";

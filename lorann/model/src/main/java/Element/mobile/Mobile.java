@@ -41,8 +41,8 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public boolean moveUp() {
 		if(this.setY(this.getY() - 1)) {
-			this.lastY = -1;
 			this.lastX = 0;
+			this.lastY = -1;
 			return true;
 		}
 		return false;
@@ -57,8 +57,8 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public boolean moveDown() {
 		if(this.setY(this.getY() + 1)) {
-			this.lastY = 1;
 			this.lastX = 0;
+			this.lastY = 1;
 			return true;
 		}
 		return false;
@@ -105,78 +105,46 @@ public abstract class Mobile extends Element implements IMobile {
      * 			  the level on the map 
      */
 	
-	/**
-	 * Gets the moveUpRight
-	 * 
-	 * @return true or false for moveUpRight
-	 */
-	
 	@Override
 	public boolean moveUpRight() {
-		if(this.setY(this.getY() - 1)) {
+		if(this.setX(this.getX() + 1) && this.setY(this.getY() - 1) ) {
+			this.lastX = 1;
 			this.lastY = -1;
-			this.lastX = 0;
 			return true;
 		}
 		return false;
 	}
-	
-	/**
-	 * Gets the moveDownLeft
-	 * 
-	 * @return true or false for moveDownLeft
-	 */
 	
 	@Override
 	public boolean moveDownLeft() {
-		if(this.setY(this.getY() + 1)) {
+		if(this.setX(this.getX() - 1) && this.setY(this.getY() + 1) ) {
+			this.lastX = -1;
 			this.lastY = 1;
-			this.lastX = 0;
 			return true;
 		}
 		return false;
 	}
-	
-	/**
-	 * Gets the moveUpLeft
-	 * 
-	 * @return true or false for moveUpLeft
-	 */
 
 	@Override
 	public boolean moveUpLeft() {
-		if(this.setX(this.getX() - 1)) {
+		if(this.setX(this.getX() - 1) && this.setY(this.getY() - 1) ) {
 			this.lastX = -1;
-			this.lastY = 0;
+			this.lastY = -1;
 			return true;
 		}
 		return false;
 	}
-	
-	/**
-	 * Gets the moveDownRight
-	 * 
-	 * @return true or flase for moveDownRight
-	 */
 
 	@Override
 	public boolean moveDownRight() {
-		if(this.setX(this.getX() + 1)) {
+		if(this.setX(this.getX() + 1) && this.setY(this.getY() + 1) ) {
 			this.lastX = 1;
-			this.lastY = 0;
+			this.lastY = 1;
 			return true;
 		}
 		return false;
 	}
 	
-	
-	/**
-	 * Instantiates a new element
-	 * 
-	 * @param sprite
-	 * @param permeability
-	 * @param level
-	 */
 	public Mobile(Sprite sprite, Permeability permeability, IMap level) {
 		this(sprite, permeability, level, 0, 0);
 	}
@@ -310,7 +278,7 @@ public abstract class Mobile extends Element implements IMobile {
 	}
 	
 	/**
-	 * if the mobile element die the map is refresh
+	 * if the mobile element die the map was refresh
 	 */
 	
 	protected void die() {
@@ -331,14 +299,6 @@ public abstract class Mobile extends Element implements IMobile {
 	public void spawnSpell() {
 		this.alive = true;
 	}
-	
-	/**
-	 * set the position for every object that will be updated
-	 * 
-	 * @param x
-	 * @param y
-	 * @return
-	 */
 
 	public boolean setPosition(int x, int y) {
 		if(this.getLevel().getOnTheMapXY(x, y).getPermeability() != Permeability.BLOCKING) {
