@@ -6,10 +6,19 @@ import model.Sprite;
 
 public class Monster_1 extends Monster implements IMonster {
 	
+	/**
+	 *  Sprite for the monster
+	 */
 	private static Sprite sprite = new Sprite('z', "monster_1");
 	
 	public boolean goingUp = true;
 
+	/**
+	 *  Instantiate a Monster
+	 * @param level
+	 * @param x
+	 * @param y
+	 */
 	public Monster_1(IMap level, int x, int y) {
 		super(sprite, level, x, y);
 	}
