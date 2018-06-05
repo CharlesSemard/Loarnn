@@ -9,6 +9,15 @@ import model.IModel;
 import model.ModelFacade;
 import view.ViewFacade;
 
+/** THIS IS OUR LAST VERSION OF OUR LORANN PROJECT 
+ * @author Alexandre Vivier Baudry
+ * @author Gwendal Lupart
+ * @author Jonathan Seguin
+ * @author Charles Semard
+ * @author Pierre-Loup Martigne
+ * @version final
+ * */
+
 /**
  * <h1>The Class Main.</h1>
  *
