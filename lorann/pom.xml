@@ -50,6 +50,8 @@
         <version>2.10.4</version>
         <configuration>
           <aggregate>true</aggregate>
+          <additionalparam>-Xdoclint:none</additionalparam>
+          <additionalOptions>-Xdoclint:none</additionalOptions>
         </configuration>
       </plugin>
      <plugin>
