@@ -14,10 +14,14 @@ import model.ModelFacade;
 
 public class Fenetre extends JFrame {
 	
+				/** Functions initialization */
+	
 			static int level = 0;
 	    	static JFrame Fenetre = new JFrame();
 	    	static int longueurFen = 1000;
 	    	static int largeurFen = 800;
+
+	    		/** Panels initialization*/
 	    	
 	    	static JPanel pan1 = new JPanel();
 	    	static JPanel pan2 = new JPanel();
@@ -27,7 +31,7 @@ public class Fenetre extends JFrame {
 	    	static JPanel panLevel4 = new JPanel();
 	    	static JPanel panLevel5 = new JPanel();
 	    	
-	        
+	        	/** Buttons initialization*/
 	    	
 	    	static JButton bouton = new JButton("Play");
 	    	static JButton bouton2 = new JButton("Exit");
@@ -50,12 +54,16 @@ public class Fenetre extends JFrame {
 
 	 public static void Menu() {
 		 
+		 		/** Frame initialization*/
+		 
 		 	Fenetre.setTitle("Lorann");
 	        Fenetre.setResizable(false);
 	        Fenetre.setSize(longueurFen, largeurFen);
 	        Fenetre.setLocationRelativeTo(null);
 	        Fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+	        	/**Adding new components*/
+	        
 	        pan1.add(texte);
 	        pan1.add(bouton);
 	        pan1.add(bouton2);
@@ -94,6 +102,7 @@ public class Fenetre extends JFrame {
 	        pan2.add(boutonExit);
 	        pan2.add(logo2);
 	        
+	        	/** ActionListeners of the first panel */
 	        
 	        bouton2.addActionListener(new ActionListener() {
 				
@@ -126,7 +135,7 @@ public class Fenetre extends JFrame {
 	        
 	        panLevel5.add(texteLevel5);
 	       
-	        
+	        	/** Buttons ActionListeners */
 	        
 	        boutonExit.addActionListener(new ActionListener() {
 				
@@ -147,6 +156,7 @@ public class Fenetre extends JFrame {
 					Fenetre.setContentPane(panLevel1);
 					level = 1;
 					System.out.println(level);
+					Fenetre.dispose();				
 				}
 			});
 	        
@@ -161,6 +171,7 @@ public class Fenetre extends JFrame {
 	        		Fenetre.setContentPane(panLevel2);
 	        		level = 2;
 	        		System.out.println(level);
+	        		Fenetre.dispose();
 	        	}
 	        });
 	        
@@ -176,6 +187,7 @@ public class Fenetre extends JFrame {
 	        		Fenetre.setContentPane(panLevel3);
 	        		level = 3;
 	        		System.out.println(level);
+	        		Fenetre.dispose();
 	        	}
 	        });
 	        
@@ -190,6 +202,7 @@ public class Fenetre extends JFrame {
 	        		Fenetre.setContentPane(panLevel4);
 	        		level = 4;
 	        		System.out.println(level);
+	        		Fenetre.dispose();
 	        	}
 	        });
 	        
@@ -204,6 +217,7 @@ public class Fenetre extends JFrame {
 	        		Fenetre.setContentPane(panLevel5);
 	        		level = 5;
 	        		System.out.println(level);
+	        		Fenetre.dispose();
 	        	}
 	        });
       

@@ -36,16 +36,14 @@ public abstract class Main {
     	Fenetre.Menu();
     	
     	
+    	Thread.sleep(3000);
     	
     	
-    	//Bloc de Fonctions de test du jeu à placer dans les boutons des fenêtres...
-    	System.out.print("test");
     	final IModel model = new ModelFacade(Fenetre.level);
     	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor());
         final ControllerFacade controller = new ControllerFacade(view, model);
         view.setOrderPerformer(controller.getOrderPerformer());
-        controller.start();
-        
+        controller.start();        
         //Fin du Bloc de Fonctions de Test
         
         
