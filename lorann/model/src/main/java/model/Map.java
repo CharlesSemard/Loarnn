@@ -169,7 +169,7 @@ public class Map extends Observable implements IMap {
 	}
 	
 	/* (non-javadoc)
-	 * Pack de méthodes utiles pour la méthode loadLevel
+	 * Pack de mï¿½thodes utiles pour la mï¿½thode loadLevel
 	 */
 	
 	/**
@@ -179,10 +179,17 @@ public class Map extends Observable implements IMap {
 		return this.characterPosition;
 	}
 
+	/**
+	 * Set the character position
+	 * @param position
+	 */
 	private void setCharacterPosition(Point position) {
 		this.characterPosition = position;
 	}
 
+	/**
+	 * Get the list of every purse on the map
+	 */
 	public IMobile[] getPurses() {
 		IMobile[] result = new IMobile[this.pursesPositions.size()];
 		for(int i = 0; i < result.length; i++) {
@@ -192,7 +199,7 @@ public class Map extends Observable implements IMap {
 	}
 
 	/**
-	 * Gets the list of all monsters
+	 * Gets the list of every monsters on the map
 	 */
 	public IMobile[] getMonsters() {
 		IMobile[] result = new IMobile[this.monsters.size()];
@@ -202,6 +209,9 @@ public class Map extends Observable implements IMap {
 		return result;
 	}
 
+	/**
+	 *  get the energyBall
+	 */
 	public Point getEnergyBall() {
 		return energyBall;
 	}

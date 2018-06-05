@@ -7,8 +7,17 @@ import model.Sprite;
 
 public class Monster_3 extends Monster {
 	
+	/**
+	 * Instantiate a new Monster
+	 */
 	private static Sprite sprite = new Sprite('y', "monster_3");
 
+	/**
+	 * Instantiate a new Monster
+	 * @param level
+	 * @param x
+	 * @param y
+	 */
 	public Monster_3(IMap level, int x, int y) {
 		super(sprite, level, x, y);
 	}

@@ -51,7 +51,7 @@ public class Purse extends Mobile {
 		return 0;
 	}
 	/**
-	 * the purse is destroyed when the hero walk on 
+	 * the purse is destroyed when the hero walk on it
 	 * 
 	 */
 	@Override
