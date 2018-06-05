@@ -1,16 +1,12 @@
 package Element.mobile;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import java.util.logging.Level;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import model.IMap;
-import model.Map;
 import model.ModelFacade;
 
 public class HeroTest {
