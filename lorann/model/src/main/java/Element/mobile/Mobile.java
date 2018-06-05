@@ -41,8 +41,8 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public boolean moveUp() {
 		if(this.setY(this.getY() - 1)) {
-			this.lastY = -1;
 			this.lastX = 0;
+			this.lastY = -1;
 			return true;
 		}
 		return false;
@@ -57,8 +57,8 @@ public abstract class Mobile extends Element implements IMobile {
 	@Override
 	public boolean moveDown() {
 		if(this.setY(this.getY() + 1)) {
-			this.lastY = 1;
 			this.lastX = 0;
+			this.lastY = 1;
 			return true;
 		}
 		return false;
@@ -107,9 +107,9 @@ public abstract class Mobile extends Element implements IMobile {
 	
 	@Override
 	public boolean moveUpRight() {
-		if(this.setY(this.getY() - 1)) {
+		if(this.setX(this.getX() + 1) && this.setY(this.getY() - 1) ) {
+			this.lastX = 1;
 			this.lastY = -1;
-			this.lastX = 0;
 			return true;
 		}
 		return false;
@@ -117,9 +117,9 @@ public abstract class Mobile extends Element implements IMobile {
 	
 	@Override
 	public boolean moveDownLeft() {
-		if(this.setY(this.getY() + 1)) {
+		if(this.setX(this.getX() - 1) && this.setY(this.getY() + 1) ) {
+			this.lastX = -1;
 			this.lastY = 1;
-			this.lastX = 0;
 			return true;
 		}
 		return false;
@@ -127,9 +127,9 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public boolean moveUpLeft() {
-		if(this.setX(this.getX() - 1)) {
+		if(this.setX(this.getX() - 1) && this.setY(this.getY() - 1) ) {
 			this.lastX = -1;
-			this.lastY = 0;
+			this.lastY = -1;
 			return true;
 		}
 		return false;
@@ -137,9 +137,9 @@ public abstract class Mobile extends Element implements IMobile {
 
 	@Override
 	public boolean moveDownRight() {
-		if(this.setX(this.getX() + 1)) {
+		if(this.setX(this.getX() + 1) && this.setY(this.getY() + 1) ) {
 			this.lastX = 1;
-			this.lastY = 0;
+			this.lastY = 1;
 			return true;
 		}
 		return false;

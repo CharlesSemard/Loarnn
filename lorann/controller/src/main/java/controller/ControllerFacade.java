@@ -62,6 +62,18 @@ public class ControllerFacade implements IController, IOrderPerformer {
         	
         	if(this.getStackOrder() != null) {
         		switch(this.getStackOrder().getKeyCode()) {
+        		case KeyEvent.VK_NUMPAD6:
+        			this.getModel().getHero().moveRight();
+        			break;
+        		case KeyEvent.VK_NUMPAD4:
+        			this.getModel().getHero().moveLeft();
+        			break;
+        		case KeyEvent.VK_NUMPAD8:
+        			this.getModel().getHero().moveUp();
+        			break;
+        		case KeyEvent.VK_NUMPAD2:
+        			this.getModel().getHero().moveDown();
+        			break;
         		case KeyEvent.VK_RIGHT:
         			this.getModel().getHero().moveRight();
         			break;
@@ -73,6 +85,18 @@ public class ControllerFacade implements IController, IOrderPerformer {
         			break;
         		case KeyEvent.VK_DOWN:
         			this.getModel().getHero().moveDown();
+        			break;
+        		case KeyEvent.VK_NUMPAD7:
+        			this.getModel().getHero().moveUpLeft();
+        			break;
+        		case KeyEvent.VK_NUMPAD9:
+        			this.getModel().getHero().moveUpRight();
+        			break;
+        		case KeyEvent.VK_NUMPAD3:
+        			this.getModel().getHero().moveDownRight();
+        			break;
+        		case KeyEvent.VK_NUMPAD1:
+        			this.getModel().getHero().moveDownLeft();
         			break;
         		case KeyEvent.VK_SPACE:
         			this.getModel().getHero().shoot();

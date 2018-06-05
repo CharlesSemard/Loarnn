@@ -67,7 +67,7 @@ public class ViewFacade implements IView, KeyListener, Runnable {
         //this.spell = spell;
     }
 
-    /*
+	/*
      * (non-Javadoc)
      * @see view.IView#displayMessage(java.lang.String)
      */
