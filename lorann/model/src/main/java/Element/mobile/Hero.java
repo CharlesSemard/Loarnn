@@ -11,7 +11,7 @@ import model.Sprite;
 
 public class Hero extends Mobile{
 	
-	/** The SPRITE. */
+	/** The SPRITES. */
 	private static Sprite lorann_b = new Sprite(' ', "lorann_b");
 	private static Sprite lorann_bl = new Sprite(' ' ,"lorann_bl");
 	private static Sprite lorann_br = new Sprite(' ' ,"lorann_br");
@@ -109,14 +109,11 @@ public class Hero extends Mobile{
      */	
 	
 	public void specialCase(int x, int y) {
-		if(isHit(this.getX(), this.getY()))
-			this.die();
+		if(isHit(this.getX(), this.getY())) {this.die();}
 		else if(this.isOnKey(x, this.getY())) {}
 		else if(this.isOnDoor(x, this.getY())) {}
-		else if(this.isHit(x, this.getY())) {}
 		else if(this.isOnPurse(x, this.getY())) {}
-		else if(this.isOnSpell(x, this.getY())) {
-			this.spell.collect();}
+		else if(this.isOnSpell(x, this.getY())) {this.spell.collect();}
 	}
 	
     /**
@@ -175,6 +172,21 @@ public class Hero extends Mobile{
 		super.moveUpLeft();
 		specialCase(this.getX(), this.getY());
 		this.setSprite(lorann_ul);
+		this.setHasMoved();
+		return true;
+	}
+	
+	/**
+     * Gets the moveDown.
+     *
+     * @return true or false for moveRight
+     */	
+	
+	@Override
+	public boolean moveDown() {
+		super.moveDown();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_br);
 		this.setHasMoved();
 		return true;
 	}
@@ -252,7 +264,6 @@ public class Hero extends Mobile{
 			key.collect();
 			hasKey = true;
 			gate.collect();
-			System.out.println("Key found");
 			return true;
 		}
 		
@@ -341,9 +352,22 @@ public class Hero extends Mobile{
 	 * Makes the spell spawn at a specific location
 	 */
 	public void shoot() {
+		if(spell != null)
 		if(!spell.isAlive()) {
 			int direction = lastY != 0 ? (lastY == -1 ? 2 : 1) : (lastX == -1 ? 3 : 4);
 			((Spell)this.spell).spawn(this.getX() - lastX, this.getY() - lastY, direction);
+		}
+	}
+	
+	/**
+	 * Adds the spell to the player
+	 * @param spell
+	 * 		Spell to add
+	 */
+	public void addSpell(IMobile spell) {
+		this.spell = spell;
+		for (IMobile monster : monsters) {
+			((Spell)this.spell).addMonster(monster);
 		}
 	}
 	
