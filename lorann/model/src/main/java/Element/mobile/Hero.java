@@ -34,8 +34,6 @@ public class Hero extends Mobile{
 	private int score = 0;
 	private boolean won = false;
 
-	/** Is the Hero allowed to launch a spell ? */
-	Boolean hasSpell = true;
 	/** Is the gate open ? */
 	Boolean hasKey = false;
 	
@@ -88,9 +86,9 @@ public class Hero extends Mobile{
 	@Override
 	public void doNothing() {
 		
-		/*if(isHit(this.getX(), this.getY())) {this.die();}
+		if(isHit(this.getX(), this.getY())) {this.die();}
 		else if(this.isOnSpell(this.getX(), this.getY())) 
-			this.spell.collect();*/
+			this.spell.collect();
 		
 		int index = 0;
 		for(int i = 0; i < sprites.length; i++) {
@@ -111,10 +109,14 @@ public class Hero extends Mobile{
      */	
 	
 	public void specialCase(int x, int y) {
-		if(this.isOnKey(x, this.getY())) {}
+		if(isHit(this.getX(), this.getY()))
+			this.die();
+		else if(this.isOnKey(x, this.getY())) {}
 		else if(this.isOnDoor(x, this.getY())) {}
 		else if(this.isHit(x, this.getY())) {}
 		else if(this.isOnPurse(x, this.getY())) {}
+		else if(this.isOnSpell(x, this.getY())) {
+			this.spell.collect();}
 	}
 	
     /**
@@ -162,6 +164,51 @@ public class Hero extends Mobile{
 		return true;
 	}
 	
+	/**
+     * Gets the moveLeft.
+     *
+     * @return true or false for moveLeft
+     */	
+	
+	@Override
+	public boolean moveUpLeft() {
+		super.moveUpLeft();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_ul);
+		this.setHasMoved();
+		return true;
+	}
+	
+    /**
+     * Gets the moveRight.
+     *
+     * @return true or false for moveRight
+     */	
+	
+	@Override
+	public boolean moveDownRight() {
+		super.moveDownRight();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_br);
+		this.setHasMoved();
+		return true;
+	}
+	
+    /**
+     * Gets the moveUp.
+     *
+     * @return true or false for moveUp
+     */	
+	
+	@Override
+	public boolean moveUpRight() {
+		super.moveUpRight();
+		specialCase(this.getX(), this.getY());
+		this.setSprite(lorann_ur);
+		this.setHasMoved();
+		return true;
+	}
+	
     /**
      * Gets the moveDown.
      *
@@ -169,10 +216,10 @@ public class Hero extends Mobile{
      */	
 	
 	@Override
-	public boolean moveDown() {
-		super.moveDown();
+	public boolean moveDownLeft() {
+		super.moveDownLeft();
 		specialCase(this.getX(), this.getY());
-		this.setSprite(lorann_b);
+		this.setSprite(lorann_bl);
 		this.setHasMoved();
 		return true;
 	}
@@ -236,8 +283,19 @@ public class Hero extends Mobile{
 	 * 		Y coordinate
 	 */
 	public boolean isOnSpell(int newX, int newY) {
+		if (spell != null)
 		if(spell.getX() == newX && spell.getY() == newY)
 			return true;
+		return false;
+	}
+	
+	@Override
+	public boolean isHit(int newX, int newY) {
+		for(IMobile monster : this.monsters) {
+			if(monster.getX() == newX && monster.getY() == newY && monster.isAlive()) {
+				return true;
+			}
+		}
 		return false;
 	}
 	

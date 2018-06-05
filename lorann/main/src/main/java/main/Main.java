@@ -33,18 +33,12 @@ public abstract class Main {
     	//Vraie fonction à garder dans le main
     	Fenetre.Menu();
     	
-    	//Thread.sleep(8000);
+    	Thread.sleep(5000);
     	
-    	//Bloc de Fonctions de test du jeu à placer dans les boutons des fenêtres...
-    	
-    	final IModel model = new ModelFacade(2);
+    	final IModel model = new ModelFacade(Fenetre.level);
     	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor(), null);
         final IController controller = new ControllerFacade(view, model);
         view.setOrderPerformer(controller.getOrderPerformer());
-        controller.start();
-        
-        //Fin du Bloc de Fonctions de Test
-        
-        
+        controller.start();   
     }   
 }
