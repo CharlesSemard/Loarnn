@@ -17,9 +17,6 @@ import view.ViewFacade;
  */
 public abstract class Main {
 	
-	/**The map of the level (text version) */
-	//public static String mapLevel;
-	
     /**
      * The main method.
      *
@@ -30,28 +27,14 @@ public abstract class Main {
      * @throws InterruptedException 
      */
     public static void main(final String[] args) throws IOException, SQLException, InterruptedException {
-    	//Vraie fonction � garder dans le main
     	Fenetre.Menu();
     	
-
-    	
-    	Thread.sleep(3000);
-    	
-    	
-   
-
-    	//Thread.sleep(8000);
-    	
-    	//Bloc de Fonctions de test du jeu � placer dans les boutons des fen�tres...
+    	Thread.sleep(5000);
     	
     	final IModel model = new ModelFacade(Fenetre.level);
-    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor(), null);
+    	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor(), model.getSpell());
         final IController controller = new ControllerFacade(view, model);
-
         view.setOrderPerformer(controller.getOrderPerformer());
-        controller.start();        
-        //Fin du Bloc de Fonctions de Test
-        
-        
+        controller.start();   
     }   
 }
