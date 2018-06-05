@@ -30,7 +30,7 @@ public abstract class Main {
      * @throws InterruptedException 
      */
     public static void main(final String[] args) throws IOException, SQLException, InterruptedException {
-    	//Vraie fonction � garder dans le main
+    	//Vraie fonction � garder dans le main
     	Fenetre.Menu();
     	
     	Thread.sleep(5000);
@@ -38,6 +38,7 @@ public abstract class Main {
     	final IModel model = new ModelFacade(Fenetre.level);
     	final ViewFacade view = new ViewFacade(model.getLevel(), model.getHero(), model.getPurses(), model.getMonsters(), model.getEnergyBall(), model.getDoor(), null);
         final IController controller = new ControllerFacade(view, model);
+>>>>>>> Yolojeveuxrécupérerlecode
         view.setOrderPerformer(controller.getOrderPerformer());
         controller.start();   
     }   
